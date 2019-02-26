@@ -1,0 +1,11 @@
+{
+  "tigers" : [ {
+    "names" : [ "Cordinal" ],
+    "legs" : 3,
+    "hasTail" : false
+  }, {
+    "names" : [ "Tom", "Humster", "Misha" ],
+    "legs" : 4,
+    "hasTail" : true
+  } ]
+}
