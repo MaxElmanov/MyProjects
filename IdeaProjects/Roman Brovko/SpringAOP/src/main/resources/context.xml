@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="ru.springAOP.*"/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+    <!--<bean id="myBeanProcessor" class="ru.springAOP.MyBeanPostprocessorPackage.MyBeanPostprocessor"/>-->
+
+    <!--<aop:config>-->
+        <!--<aop:aspect id="log" ref="myLogger">-->
+            <!--<aop:pointcut id="allMethods" expression="execution(public * *(..))"/>-->
+            <!--&lt;!&ndash;<aop:pointcut id="getValue" expression="execution(* ru.springAOP.objects.SomeService.*(..))"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<aop:before pointcut-ref="getValue" method="init"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<aop:after pointcut-ref="getValue" method="close"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<aop:after-returning pointcut-ref="getValue" method="printValue" returning="obj"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<aop:after-throwing pointcut-ref="getValue" method="showAfterThrowing" throwing="upps"/>&ndash;&gt;-->
+            <!--<aop:around pointcut-ref="allMethods" method="watchTime"/>-->
+            <!--<aop:after-returning pointcut-ref="allMethods" method="print" returning="obj"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+</beans>
