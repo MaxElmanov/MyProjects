@@ -1,0 +1,6 @@
+D:\VSProjects\WorkWithDataBase\WorkWithDataBase\bin\Debug\WorkWithDataBase.exe.config
+D:\VSProjects\WorkWithDataBase\WorkWithDataBase\bin\Debug\WorkWithDataBase.exe
+D:\VSProjects\WorkWithDataBase\WorkWithDataBase\bin\Debug\WorkWithDataBase.pdb
+D:\VSProjects\WorkWithDataBase\WorkWithDataBase\obj\Debug\WorkWithDataBase.csprojResolveAssemblyReference.cache
+D:\VSProjects\WorkWithDataBase\WorkWithDataBase\obj\Debug\WorkWithDataBase.exe
+D:\VSProjects\WorkWithDataBase\WorkWithDataBase\obj\Debug\WorkWithDataBase.pdb

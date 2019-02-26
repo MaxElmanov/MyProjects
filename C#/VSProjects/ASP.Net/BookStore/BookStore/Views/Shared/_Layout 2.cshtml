@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    @*<link href="@Url.Content("~/Constent/Site.css")" rel="stylesheet" type="text/css"/>*@
+    <meta name="viewport" content="width=device-width" />
+    <link type="text/css" rel="stylesheet" href="Content/Site.css" />
+</head>
+<body>
+  <nav>
+      <ul class="menu">
+          <li style=" text-decoration: none;">@Html.ActionLink("Mai2n2222", "Index", "Home")</li>
+      </ul>
+  </nav>
+    @RenderBody()
+    <hr />
+    <p>&Dagger; My Application 222222222222222222222222222222!</p>
+</body>
+</html>
