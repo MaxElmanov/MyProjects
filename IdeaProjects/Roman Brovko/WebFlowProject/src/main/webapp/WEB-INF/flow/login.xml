@@ -16,7 +16,7 @@
     <subflow-state id="createUserFlow" subflow="create-user">
         <input name="user"/>
         <transition on="userCreated" to="loginForm">
-            <set name="flashScope.notificationUserCreated" value=" 'user was successfully created' " type="java.lang.String"/>
+            <set name="flashScope.notificationUserCreated" value="resourceBundle.user_created" type="java.lang.String"/>
         </transition>
         <transition on="canceled" to="loginForm"/>
     </subflow-state>
@@ -25,7 +25,7 @@
         <evaluate expression="userService.checkUser(user)"/>
         <transition on="yes" to="mainContent"/>
         <transition on="no" to="loginForm">
-            <set name="flashScope.errorMessage" value=" 'Such user is not existing' " type="java.lang.String"/>
+            <set name="flashScope.errorMessage" value="resourceBundle.user_doesnot_exist" type="java.lang.String"/>
         </transition>
     </action-state>
 

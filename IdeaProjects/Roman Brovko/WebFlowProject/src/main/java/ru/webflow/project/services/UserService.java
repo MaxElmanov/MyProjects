@@ -32,10 +32,12 @@ public class UserService {
 
     public String createUser(User user, RequestContext context){
 
+        log.info("suchUserExistsYet");
         if(hasSuchUserYet(user)){
             return "suchUserExistsYet";
         }
 
+        log.info("invalidFields");
         if(areInvalidUserFields(user)){
             return "invalidFields";
         }
@@ -57,6 +59,12 @@ public class UserService {
     }
 
     private boolean hasSuchUserYet(User user) {
-        return userList.contains(user) ? true : false;
+       for (User u : userList){
+           if(u.equals(user)) {
+               return true;
+           }
+       }
+
+       return false;
     }
 }
