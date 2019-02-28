@@ -2,6 +2,8 @@ package ru.webflow.project.services;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.binding.message.DefaultMessageResolver;
+import org.springframework.binding.message.MessageBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.webflow.execution.RequestContext;
 import ru.webflow.project.objects.User;
@@ -30,22 +32,21 @@ public class UserService {
         return false;
     }
 
-    public String createUser(User user, RequestContext context){
+    public String createUser(User user, RequestContext context) throws Exception {
 
-        log.info("suchUserExistsYet");
         if(hasSuchUserYet(user)){
-            return "suchUserExistsYet";
+            context.getMessageContext().addMessage(new MessageBuilder().code("user_exist").build());
+            throw new Exception("Such user already exists");
         }
 
-        log.info("invalidFields");
         if(areInvalidUserFields(user)){
+            context.getMessageContext().addMessage(new MessageBuilder().code("incorrect_fields").build());
             return "invalidFields";
         }
 
+        context.getMessageContext().addMessage(new MessageBuilder().code("enter").build());
+        context.getMessageContext().addMessage(new MessageBuilder().code("user_created").build());
         userList.add(user);
-
-        log.info("user [name= "+user.getName() + " - password= " + user.getPassword() + " was created");
-        System.out.println(context.getFlowScope().asMap());
 
         return "validFields";
     }

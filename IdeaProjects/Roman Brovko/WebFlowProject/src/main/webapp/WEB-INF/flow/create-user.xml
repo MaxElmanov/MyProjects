@@ -14,11 +14,11 @@
     
     <action-state id="createUserAction">
         <evaluate expression="userService.createUser(user, flowRequestContext)"/>
-        <transition on="suchUserExistsYet" to="createUserFrom">
-            <set name="flashScope.messageSuchUserExistsYet" value="resourceBundle.user_exist" type="java.lang.String"/>
+        <transition on-exception="java.lang.Exception" to="createUserFrom">
+            <!--<set name="flashScope.messageSuchUserExistsYet" value="resourceBundle.user_exist" type="java.lang.String"/>-->
         </transition>
         <transition on="invalidFields" to="createUserFrom">
-            <set name="flashScope.messageInvalidFields" value="resourceBundle.incorrect_fields" type="java.lang.String"/>
+            <!--<set name="flashScope.messageInvalidFields" value="resourceBundle.incorrect_fields" type="java.lang.String"/>-->
         </transition>
         <transition on="validFields" to="userCreated"/>
     </action-state>

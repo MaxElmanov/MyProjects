@@ -1,6 +1,6 @@
 public class main {
     public static void main(String[] args) {
-        String cancel = "such user is existing";
+        String cancel = "Введите пароль здесь";
 
         StringBuilder converted = new StringBuilder(cancel.length()*6);
         for(char c : cancel.toCharArray()){

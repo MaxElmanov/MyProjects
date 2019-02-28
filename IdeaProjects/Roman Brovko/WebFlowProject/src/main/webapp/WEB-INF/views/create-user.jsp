@@ -32,13 +32,22 @@
         </fieldset>
 
         <footer>
-            <c:if test="${not empty messageSuchUserExistsYet}">
-                <span style="float: right;" class="error">${messageSuchUserExistsYet}</span>
+            <%--<c:if test="${not empty messageSuchUserExistsYet}">--%>
+                <%--<span style="float: right;" class="error">${messageSuchUserExistsYet}</span>--%>
+            <%--</c:if>--%>
+
+            <%--<c:if test="${not empty messageInvalidFields}">--%>
+                <%--<span style="float: right;" class="error">${messageInvalidFields}</span>--%>
+            <%--</c:if>--%>
+
+            <c:if test="${not empty flowRequestContext.messageContext.allMessages}">
+                <ul class="red_messages">
+                    <c:forEach var="msg" items="${flowRequestContext.messageContext.allMessages}">
+                        <li>${msg.text}</li>
+                    </c:forEach>
+                </ul>
             </c:if>
 
-            <c:if test="${not empty messageInvalidFields}">
-                <span style="float: right;" class="error">${messageInvalidFields}</span>
-            </c:if>
             <br/>
             <input type="submit" class="btnLogin" value="<spring:message code="create-user"/> " name="_eventId_submit"/>
             <input type="submit" class="btnLogin" value="<spring:message code="cancel"/>" name="_eventId_cancel"/>

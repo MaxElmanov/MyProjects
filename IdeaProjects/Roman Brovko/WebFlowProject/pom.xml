@@ -19,6 +19,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <org.springfamework.version>2.4.0.RELEASE</org.springfamework.version>
         <jstl.version>1.2</jstl.version>
+        <spring-js.version>2.4.0.RELEASE</spring-js.version>
     </properties>
 
     <dependencies>
@@ -45,6 +46,17 @@
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
+        </dependency>
+        <!--JavaScript-->
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-js</artifactId>
+            <version>${spring-js.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-js-resources</artifactId>
+            <version>${spring-js.version}</version>
         </dependency>
 
     </dependencies>
