@@ -1,9 +1,0 @@
-D:\VSProjects\TheTanks\TheTanks\bin\Debug\TheTanks.exe.config
-D:\VSProjects\TheTanks\TheTanks\bin\Debug\TheTanks.exe
-D:\VSProjects\TheTanks\TheTanks\bin\Debug\TheTanks.pdb
-D:\VSProjects\TheTanks\TheTanks\obj\Debug\TheTanks.csprojResolveAssemblyReference.cache
-D:\VSProjects\TheTanks\TheTanks\obj\Debug\TheTanks.Properties.Resources.resources
-D:\VSProjects\TheTanks\TheTanks\obj\Debug\TheTanks.csproj.GenerateResource.Cache
-D:\VSProjects\TheTanks\TheTanks\obj\Debug\TheTanks.exe
-D:\VSProjects\TheTanks\TheTanks\obj\Debug\TheTanks.pdb
-D:\VSProjects\TheTanks\TheTanks\obj\Debug\TheTanks.MainForm_View.resources
