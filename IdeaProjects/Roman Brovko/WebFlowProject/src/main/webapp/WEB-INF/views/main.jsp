@@ -1,14 +1,18 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: MaxNick
+  Date: 01.03.2019
+  Time: 12:24
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Main</title>
+    <title>main</title>
 </head>
 <body>
     <h2>Main</h2>
-    <label><strong>User name: ${user.name}</strong></label><br/>
-    <label><strong>User password: ${user.password}</strong></label>
+    <h3>${user.name}</h3>
+    <h3>${user.password}</h3>
 </body>
 </html>

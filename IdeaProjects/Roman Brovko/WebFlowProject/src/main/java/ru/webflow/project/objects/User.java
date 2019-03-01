@@ -1,5 +1,6 @@
 package ru.webflow.project.objects;
 
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -7,7 +8,10 @@ public class User implements Serializable {
 
     public static final long serialVersionUID = 1L;
 
+    @Size(min = 6, message = "{name.size.error}")
     private String name;
+
+    @Size(min = 5, max = 10, message = "{password.size.error}")
     private String password;
 
     public String getName() {

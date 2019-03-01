@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/dijit/themes/tundra/tundra.css">
     <meta charset="utf-8"/>
 </head>
-<body class="tundra">
+<body>
     <form:form method="POST" modelAttribute="user" class="box login">
 
         <fieldset class="boxBody">
@@ -24,30 +24,33 @@
                 <spring:message code="username" />
             </form:label>
             <form:input path="name" id="username"/>
-            <script type="text/javascript">
-                Spring.addDecoration(new Spring.ElementDecoration({
-                    elementId : "username",
-                    widgetType : "dijit.from.ValidationTextBox",
-                    widgetAttrs : {
-                        promptMessage : "<spring:message code="enter_name"/> "
-                    }
-                }));
-            </script>
+            <%--<form:errors path="name" cssClass="error"/>--%>
+            <%--<script type="text/javascript">--%>
+                <%--Spring.addDecoration(new Spring.ElementDecoration({--%>
+                    <%--elementId : "username",--%>
+                    <%--widgetType : "dijit.from.ValidationTextBox",--%>
+                    <%--widgetAttrs : {--%>
+                        <%--promptMessage : "<spring:message code="enter_name"/> "--%>
+                    <%--}--%>
+                <%--}));--%>
+            <%--</script>--%>
 
 
             <form:label path="password">
                 <spring:message code="password" />
             </form:label>
             <form:input path="password" type="password" id="password"/>
-            <script type="text/javascript">
-                Spring.addDecoration(new Spring.ElementDecoration({
-                    elementId : "password",
-                    widgetType : "dijit.from.ValidationTextBox",
-                    widgetAttrs : {
-                        promptMessage : "<spring:message code="enter_password"/>"
-                    }
-                }));
-            </script>
+            <form:errors path="password" cssClass="error"/>
+
+            <%--<script type="text/javascript">--%>
+                <%--Spring.addDecoration(new Spring.ElementDecoration({--%>
+                    <%--elementId : "password",--%>
+                    <%--widgetType : "dijit.from.ValidationTextBox",--%>
+                    <%--widgetAttrs : {--%>
+                        <%--promptMessage : "<spring:message code="enter_password"/>"--%>
+                    <%--}--%>
+                <%--}));--%>
+            <%--</script>--%>
 
 
             <c:if test="${not empty flowRequestContext.messageContext.allMessages}">

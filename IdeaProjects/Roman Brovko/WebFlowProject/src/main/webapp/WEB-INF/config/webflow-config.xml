@@ -9,10 +9,10 @@
 
     <flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flow">
         <!--<flow-location id="login" path="/WEB-INF/flow/login.xml"/>-->
-        <flow-location-pattern value="/**/*.xml"/>
+        <flow-location-pattern value="*.xml"/>
     </flow-registry>
 
-    <flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry"/>
+    <flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry" />
 
     <beans:bean id="flowViewResolver" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
         <beans:property name="viewResolvers">
@@ -22,6 +22,8 @@
         </beans:property>
     </beans:bean>
 
-    <flow-builder-services id="flowBuilderServices" view-factory-creator="flowViewResolver"/>
+    <flow-builder-services id="flowBuilderServices" view-factory-creator="flowViewResolver" />
+
+    <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
 </beans:beans>
