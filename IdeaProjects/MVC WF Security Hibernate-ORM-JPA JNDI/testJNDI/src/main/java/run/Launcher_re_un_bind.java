@@ -10,7 +10,7 @@ import javax.naming.NamingException;
 import javax.naming.Referenceable;
 import java.util.Hashtable;
 
-public class Launcher{
+public class Launcher_re_un_bind {
 
     public static final Logger logger = LogManager.getLogger(Referenceable.class.getName());
 

@@ -7,9 +7,16 @@ import javax.naming.StringRefAddr;
 
 public class Monkey implements Referenceable {
 
+    public static final String NAME = "name";
+    public static final String FAVORITE_FRUIT = "favorite fruit";
+    public static final String LIKES_BANANAS = "Does it like bananas?";
+
     private String name;
     private String favoriteFruit;
     private boolean likesBananas;
+
+    public Monkey() {
+    }
 
     public Monkey(String name, String favoriteFruit, boolean likesBananas) {
         this.name = name;
@@ -43,11 +50,11 @@ public class Monkey implements Referenceable {
 
     @Override
     public Reference getReference() throws NamingException {
-        Reference reference = new Reference(this.getClass().getName());
+        Reference reference = new Reference(Monkey.class.getName(), MonkeyFactory.class.getName(), null);
 
-        reference.add(new StringRefAddr("name", this.name));
-        reference.add(new StringRefAddr("favorite fruit", this.favoriteFruit));
-        reference.add(new StringRefAddr("Does it like bananas?", Boolean.toString(this.likesBananas)));
+        reference.add(new StringRefAddr(NAME, this.name));
+        reference.add(new StringRefAddr(FAVORITE_FRUIT, this.favoriteFruit));
+        reference.add(new StringRefAddr(LIKES_BANANAS, Boolean.toString(this.likesBananas)));
 
         return reference;
     }

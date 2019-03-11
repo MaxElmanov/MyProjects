@@ -1,12 +1,23 @@
 #This file is used by the JNDI FSContext.
-#Sun Mar 10 20:24:29 MSK 2019
+#Mon Mar 11 12:27:03 MSK 2019
+steven/FactoryName=run.objects.MonkeyFactory
 monkeyAlex/RefAddr/1/Content=tomato
+steven/RefAddr/2/Encoding=String
 monkeyAlex/RefAddr/2/Encoding=String
+steven/RefAddr/0/Type=name
 monkeyAlex/RefAddr/0/Type=name
+steven/RefAddr/0/Content=Steven
+steven/RefAddr/1/Type=favorite fruit
 monkeyAlex/RefAddr/1/Type=favorite fruit
+steven/RefAddr/0/Encoding=String
 monkeyAlex/RefAddr/0/Encoding=String
 monkeyAlex/RefAddr/2/Content=false
+steven/ClassName=run.objects.Monkey
 monkeyAlex/RefAddr/0/Content=Alex
+steven/RefAddr/2/Type=Does it like bananas?
 monkeyAlex/RefAddr/2/Type=Does it like bananas?
 monkeyAlex/ClassName=run.objects.Monkey
+steven/RefAddr/2/Content=true
+steven/RefAddr/1/Content=orange
+steven/RefAddr/1/Encoding=String
 monkeyAlex/RefAddr/1/Encoding=String
