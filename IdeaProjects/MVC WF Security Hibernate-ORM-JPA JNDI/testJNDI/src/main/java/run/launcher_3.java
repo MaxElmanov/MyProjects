@@ -2,17 +2,21 @@ package run;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import run.objects.Monkey;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.naming.Referenceable;
 import java.util.Hashtable;
+import java.io.File;
 
-public class Launcher_re_un_bind {
+/**
+ * class Launcher was created for learning JNDI.
+ * In this class I learnt composeName().
+ */
 
-    public static final Logger logger = LogManager.getLogger(Referenceable.class.getName());
+public class launcher_3 {
+    public static final Logger log = LogManager.getLogger(Referenceable.class.getName());
 
     public static void main(String[] args) throws NamingException {
 
@@ -22,12 +26,15 @@ public class Launcher_re_un_bind {
 
         Context context = new InitialContext(environment);
 
-        Monkey monkeySteven = new Monkey("Steven", "orange", true);
-        Monkey monkeyAlex = new Monkey("Alex", "tomato", false);
+        Context folder_1 = (Context) context.lookup("folder_1");
 
-        context.rebind("monkeySteven", monkeySteven);
-        context.rebind("monkeyAlex", monkeyAlex);
+        String name = folder_1.composeName("inner_folder_1", "folder_1");
+        System.out.println(name);
 
-        context.unbind("monkeySteven");
+        Context inner_folder_1 = (Context) folder_1.lookup("inner_folder_1");
+        name = inner_folder_1.composeName("text_1.txt", name);
+        System.out.println(name);
+
+        System.out.println(context.lookup(name) instanceof File);
     }
 }

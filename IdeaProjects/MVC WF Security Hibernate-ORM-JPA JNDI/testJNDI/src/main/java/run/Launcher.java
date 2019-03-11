@@ -10,11 +10,14 @@ import javax.naming.NamingException;
 import javax.naming.Referenceable;
 import java.util.Hashtable;
 
+/**
+ * class Launcher was created for learning JNDI.
+ * In this class I learnt rebind/unbind/bind methods.
+ */
 
+public class Launcher {
 
-public class Launcher_2_lookup {
-
-    public static final Logger log = LogManager.getLogger(Referenceable.class.getName());
+    public static final Logger logger = LogManager.getLogger(Referenceable.class.getName());
 
     public static void main(String[] args) throws NamingException {
 
@@ -25,12 +28,11 @@ public class Launcher_2_lookup {
         Context context = new InitialContext(environment);
 
         Monkey monkeySteven = new Monkey("Steven", "orange", true);
+        Monkey monkeyAlex = new Monkey("Alex", "tomato", false);
 
-        context.rebind("steven", monkeySteven);
+        context.rebind("monkeySteven", monkeySteven);
+        context.rebind("monkeyAlex", monkeyAlex);
 
-        Object monkeyStevensBrother = context.lookup("steven");
-
-        log.info(monkeyStevensBrother);
-
+        context.unbind("monkeySteven");
     }
 }
