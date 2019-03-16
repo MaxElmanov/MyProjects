@@ -1,0 +1,8 @@
+Первый шаг к работе тестов в проекте - подключение библиотеки для тестирования:
+
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
