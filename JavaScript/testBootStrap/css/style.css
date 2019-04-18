@@ -1,0 +1,9 @@
+.bor{
+	border: 1px solid black;
+	font-size: 30px;
+}
+
+::selection{
+	color: white;
+	background-color: red;
+}
