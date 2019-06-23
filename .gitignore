@@ -1,5 +1,3 @@
-.gitignore
-
 # Eclipse
 .classpath
 .project
@@ -22,6 +20,8 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+.gitignore
 
 # Mac
 .DS_Store
