@@ -1,0 +1,32 @@
+*{
+	box-sizing: border-box;
+}
+
+.wrapper{
+	position: relative;
+	width: 736px;
+	height: 652px;
+	margin: 100px auto;
+}
+
+#canvas{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: black;
+}
+
+#audio {
+	position: absolute; 
+	top: 300px; 
+	left: 92%; 
+	transition: all ease 0.5s;
+	width: 48px;
+	height: 48px;
+}
+
+.deep{
+    background-image: url("https://www.overclockers.ua/news/games/121541-world-of-tanks-1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}

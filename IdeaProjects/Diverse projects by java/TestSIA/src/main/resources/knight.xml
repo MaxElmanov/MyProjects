@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/util    http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
+
+    <context:component-scan base-package="com.test.spring"/>
+
+    <aop:aspectj-autoproxy/>
+
+    <!--<aop:config>-->
+        <!--<aop:aspect ref="song">-->
+            <!--<aop:pointcut id="transactionSong"  expression="execution(* com.test.spring.classes.BraveKnight.divideAbyB(int,int))"/>-->
+
+            <!--&lt;!&ndash;<aop:before method="SingSongBefore" pointcut-ref="transactionSong"/>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<aop:after-returning method="SingSongAfter" pointcut-ref="transactionSong"/>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<aop:after-throwing method="SingSongThrowing" pointcut-ref="transactionSong"/>&ndash;&gt;-->
+
+            <!--<aop:around method="watchTime" pointcut-ref="transactionSong"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
+    <!--<util:properties id="settings" location="classpath:settings.properties"/>-->
+
+    <!--<bean id="knight3" class="com.test.spring.classes.BraveKnight">-->
+        <!--<property name="quests">-->
+            <!--<list>-->
+                <!--<ref bean="questOne"/>-->
+                <!--<ref bean="questThree"/>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="helmet" ref="helmet"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="questOne" class="com.test.spring.listQuests.QuestOne" scope="prototype"></bean>-->
+    <!--<bean id="questThree" class="com.test.spring.listQuests.QuestThree"></bean>-->
+
+    <!--<bean name="questProvider" class="com.test.spring.helping.QuestsProvider" abstract="false" scope="singleton">-->
+        <!--<lookup-method name="getQuest" bean="questOne"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="helmet" class="com.test.spring.classes.IronHelmet" primary="true">-->
+        <!--<qualifier value="HELMET"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="MyKnightEventListener" class="com.test.spring.eventsANDlistener.MyKnightEventListener" />-->
+
+</beans>
