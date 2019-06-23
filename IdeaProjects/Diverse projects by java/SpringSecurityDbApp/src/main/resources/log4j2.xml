@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="info">
+    <Appenders>
+        <Console name="console" >
+            <PatternLayout pattern="%d{yyyy-MM-dd} HH:mm:ss.SSS [%t] %-5p %m%n"></PatternLayout>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="net.proselyte.springsecurityapp" level="debug"/>
+
+        <Logger name="org.springframework" level="info"></Logger>
+
+        <Root level="error">
+            <AppenderRef ref="console"></AppenderRef>
+        </Root>
+    </Loggers>
+</Configuration>
