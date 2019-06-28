@@ -1,19 +1,22 @@
 package com.ibm.mq.jms.logics;
 
+import com.ibm.mq.MQException;
+import com.ibm.mq.constants.MQConstants;
 import com.ibm.msg.client.jms.JmsConnectionFactory;
 import com.ibm.msg.client.jms.JmsFactoryFactory;
 import com.ibm.msg.client.wmq.WMQConstants;
 
-import javax.jms.Connection;
+import javax.jms.JMSContext;
 import javax.jms.JMSException;
 
 public abstract class JmsBase {
-    protected Connection connection  = null;
+//    protected JMSContext           context = null;
+    protected JmsConnectionFactory cf      = null;
     //---------------------------------------------------------------
     private void createConnection(String host, int port, String channel, String queueManagerName)
     {
         JmsFactoryFactory    ff;
-        JmsConnectionFactory cf;
+
         try {
             ff = JmsFactoryFactory.getInstance(WMQConstants.WMQ_PROVIDER);
             cf = ff.createConnectionFactory();
@@ -24,8 +27,6 @@ public abstract class JmsBase {
             cf.setStringProperty(WMQConstants.WMQ_CHANNEL  , channel);
             cf.setIntProperty   (WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_BINDINGS);
             cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER,   queueManagerName);
-
-            connection  = cf.createConnection();
         } catch (JMSException jmsex) {
             recordFailure(jmsex);
         }
@@ -33,13 +34,20 @@ public abstract class JmsBase {
     //---------------------------------------------------------------
     public JmsBase(String host, int port, String channel, String queueManagerName)
     {
-            createConnection(host, port, channel, queueManagerName);
+        createConnection(host, port, channel, queueManagerName);
     }
     //---------------------------------------------------------------
     protected void recordFailure(Exception ex){
         if(ex != null){
             if(ex instanceof JMSException) {
                 processJMSException((JMSException) ex);
+            }
+            else if (ex instanceof MQException && MQConstants.MQRC_Q_FULL == ((MQException) ex).getReason()){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
             else{
                 System.out.println(ex);

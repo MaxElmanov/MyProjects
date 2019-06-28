@@ -11,6 +11,7 @@
     <properties>
         <javax.jms.version>2.0.1</javax.jms.version>
         <com.ibm.mq.version>9.1.1.0</com.ibm.mq.version>
+        <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
     </properties>
 
 
@@ -26,6 +27,11 @@
             <groupId>javax.jms</groupId>
             <artifactId>javax.jms-api</artifactId>
             <version>${javax.jms.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
         </dependency>
     </dependencies>
 

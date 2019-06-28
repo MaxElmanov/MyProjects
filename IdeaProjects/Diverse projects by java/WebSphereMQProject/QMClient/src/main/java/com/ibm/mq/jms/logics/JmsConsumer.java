@@ -7,10 +7,9 @@ import java.util.Objects;
 
 public class JmsConsumer extends JmsBase {
 
-    private String          queueName   = null;
-    private Session         session     = null;
-    private Destination     destination = null;
-    private MessageConsumer consumer    = null;
+    private String      queueName   = null;
+    private Queue       queue = null;
+    private JMSConsumer consumer    = null;
 
     public JmsConsumer(String host, int port, String channel, String queueManagerName, String queueName)
     {
@@ -22,38 +21,18 @@ public class JmsConsumer extends JmsBase {
     {
         List<String> resultSms = new ArrayList<>();
 
-        try {
-            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            destination = session.createQueue(queueName);
-            connection.start();
+        try (JMSContext context = cf.createContext();){
+            queue = context.createQueue(queueName);
+//            connection.start();
+            consumer = context.createConsumer(queue);
 
             System.out.println("Getting JMS messages\n");
-            consumer = session.createConsumer(destination);
-
             Message message = consumer.receiveNoWait();
             while(!Objects.isNull(message)){
                 resultSms.add(message.toString());
                 message = consumer.receiveNoWait();
             }
 
-        } catch (JMSException e) {
-            recordFailure(e);
-        }
-        finally {
-            if(session != null) {
-                try {
-                    session.close();
-                } catch (JMSException e) {
-                    recordFailure(e);
-                }
-            }
-            if(connection != null) {
-                try {
-                    connection.close();
-                } catch (JMSException e) {
-                    recordFailure(e);
-                }
-            }
         }
 
         return resultSms;
