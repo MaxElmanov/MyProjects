@@ -12,8 +12,8 @@ public class JSONExecuter {
         ObjectMapper mapper = new ObjectMapper();
         ConnectionInfo conninfo = null;
         try {
-            File file = new File("src\\main\\resources\\" + fileName);
-            conninfo = mapper.readValue(file, ConnectionInfo.class);
+            InputStream resourceAsStream = JSONExecuter.class.getClassLoader().getResourceAsStream(fileName);
+            conninfo = mapper.readValues(resourceAsStream, ConnectionInfo.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,20 +31,4 @@ public class JSONExecuter {
             e.printStackTrace();
         }
     }
-
-//    public static void main(String[] args) {
-//        JSONExecuter JSON = new JSONExecuter();
-////        ConnectionInfo conninfo = null;
-////        conninfo = new ConnectionInfo();
-////        conninfo.setHost("localhost");
-////        conninfo.setPort(1414);
-////        conninfo.setChannel("SYSTEM.DEF.SVRCONN");
-////        conninfo.setQueueManagerName("IBMESBQM1");
-////        conninfo.setQueueName("IBM.ESB.IN");
-////        JSON.write("consumer.json", conninfo);
-//
-//        ConnectionInfo conninfo = JSON.read("producer.json");
-//
-//        System.out.println(conninfo);
-//    }
 }

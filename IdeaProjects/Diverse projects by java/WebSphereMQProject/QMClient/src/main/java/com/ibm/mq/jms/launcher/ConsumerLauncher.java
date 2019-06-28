@@ -8,12 +8,6 @@ import java.util.List;
 
 public class ConsumerLauncher {
 
-//    private static String   host              = "localhost"         ;
-//    private static int      port              = 1415                ;
-//    private static String   channel           = "SYSTEM.DEF.SVRCONN";
-//    private static String   queueManagerName  = "IBMESBQM2"         ;
-//    private static String   queueName         = "IBM.ESB.IN"        ;
-
     public static void main(String[] args) {
         JSONExecuter json = new JSONExecuter();
         ConnectionInfo conn = json.read("consumer.json");

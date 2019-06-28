@@ -8,7 +8,7 @@ import java.util.Objects;
 public class JmsConsumer extends JmsBase {
 
     private String      queueName   = null;
-    private Queue       queue = null;
+    private Queue       queue       = null;
     private JMSConsumer consumer    = null;
 
     public JmsConsumer(String host, int port, String channel, String queueManagerName, String queueName)
@@ -23,14 +23,17 @@ public class JmsConsumer extends JmsBase {
 
         try (JMSContext context = cf.createContext();){
             queue = context.createQueue(queueName);
-//            connection.start();
             consumer = context.createConsumer(queue);
 
             System.out.println("Getting JMS messages\n");
-            Message message = consumer.receiveNoWait();
+            String message = consumer.receiveBody(String.class);
+
+            if(Objects.isNull(message)) {
+                System.out.println("There is no any messages");
+            }
             while(!Objects.isNull(message)){
-                resultSms.add(message.toString());
-                message = consumer.receiveNoWait();
+                resultSms.add(message);
+                message = consumer.receiveBody(String.class);
             }
 
         }

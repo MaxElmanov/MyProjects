@@ -6,22 +6,20 @@ import com.ibm.msg.client.jms.JmsConnectionFactory;
 import com.ibm.msg.client.jms.JmsFactoryFactory;
 import com.ibm.msg.client.wmq.WMQConstants;
 
-import javax.jms.JMSContext;
 import javax.jms.JMSException;
 
-public abstract class JmsBase {
-//    protected JMSContext           context = null;
-    protected JmsConnectionFactory cf      = null;
-    //---------------------------------------------------------------
+public abstract class JmsBase
+{
+    protected JmsConnectionFactory cf = null;
+
     private void createConnection(String host, int port, String channel, String queueManagerName)
     {
-        JmsFactoryFactory    ff;
+        JmsFactoryFactory ff;
 
         try {
             ff = JmsFactoryFactory.getInstance(WMQConstants.WMQ_PROVIDER);
             cf = ff.createConnectionFactory();
 
-            // Set the properties
             cf.setStringProperty(WMQConstants.WMQ_HOST_NAME, host   );
             cf.setIntProperty   (WMQConstants.WMQ_PORT     , port   );
             cf.setStringProperty(WMQConstants.WMQ_CHANNEL  , channel);
@@ -31,12 +29,12 @@ public abstract class JmsBase {
             recordFailure(jmsex);
         }
     }
-    //---------------------------------------------------------------
+
     public JmsBase(String host, int port, String channel, String queueManagerName)
     {
         createConnection(host, port, channel, queueManagerName);
     }
-    //---------------------------------------------------------------
+
     protected void recordFailure(Exception ex){
         if(ex != null){
             if(ex instanceof JMSException) {
@@ -56,7 +54,7 @@ public abstract class JmsBase {
 
         System.out.println("FAILURE");
     }
-    //---------------------------------------------------------------
+
     protected void processJMSException(JMSException jmse) {
         System.out.println(jmse);
         Throwable innerException = jmse.getLinkedException();

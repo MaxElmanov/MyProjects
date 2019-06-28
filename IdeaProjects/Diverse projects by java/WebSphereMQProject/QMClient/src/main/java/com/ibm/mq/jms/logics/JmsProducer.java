@@ -1,12 +1,15 @@
 package com.ibm.mq.jms.logics;
 
-import javax.jms.*;
+import javax.jms.JMSContext;
+import javax.jms.JMSProducer;
+import javax.jms.Queue;
+import javax.jms.TextMessage;
 
 public class JmsProducer extends JmsBase {
 
-    private Queue       queue = null;
-    private JMSProducer producer    = null;
-    private String      queueName   = null;
+    private Queue       queue     = null;
+    private JMSProducer producer  = null;
+    private String      queueName = null;
 
     public JmsProducer(String host, int port, String channel, String queueManagerName, String queueName)
     {
@@ -16,12 +19,11 @@ public class JmsProducer extends JmsBase {
 
     public void send(String[] messages)
     {
-        try (JMSContext context = cf.createContext();){
+        try (JMSContext context = cf.createContext()){
             queue = context.createQueue(queueName);
-//            context.start();
             producer = context.createProducer();
 
-            System.out.println("Getting JMS messages\n");
+            System.out.println("Sending JMS messages\n");
             TextMessage message = null;
             for (int i = 0; i < messages.length; i++) {
                 message = context.createTextMessage(messages[i]);
