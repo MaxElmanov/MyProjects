@@ -8,13 +8,16 @@ import com.ibm.msg.client.wmq.WMQConstants;
 
 import javax.jms.JMSException;
 
-public abstract class JmsBase {
+public abstract class JmsBase
+{
     protected JmsConnectionFactory cf = null;
 
-    private void createConnection(String host, int port, String channel, String queueManagerName) {
+    private void createConnection(String host, int port, String channel, String queueManagerName)
+    {
         JmsFactoryFactory ff;
 
-        try {
+        try
+        {
             ff = JmsFactoryFactory.getInstance(WMQConstants.WMQ_PROVIDER);
             cf = ff.createConnectionFactory();
 
@@ -23,26 +26,35 @@ public abstract class JmsBase {
             cf.setStringProperty(WMQConstants.WMQ_CHANNEL, channel);
             cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_BINDINGS);
             cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, queueManagerName);
-        } catch (JMSException jmsex) {
+        } catch (JMSException jmsex)
+        {
             recordFailure(jmsex);
         }
     }
 
-    public JmsBase(String host, int port, String channel, String queueManagerName) {
+    public JmsBase(String host, int port, String channel, String queueManagerName)
+    {
         createConnection(host, port, channel, queueManagerName);
     }
 
-    protected void recordFailure(Exception ex) {
-        if (ex != null) {
-            if (ex instanceof JMSException) {
+    protected void recordFailure(Exception ex)
+    {
+        if (ex != null)
+        {
+            if (ex instanceof JMSException)
+            {
                 processJMSException((JMSException) ex);
-            } else if (ex instanceof MQException && MQConstants.MQRC_Q_FULL == ((MQException) ex).getReason()) {
-                try {
+            } else if (ex instanceof MQException && MQConstants.MQRC_Q_FULL == ((MQException) ex).getReason())
+            {
+                try
+                {
                     Thread.sleep(1000);
-                } catch (InterruptedException e) {
+                } catch (InterruptedException e)
+                {
                     e.printStackTrace();
                 }
-            } else {
+            } else
+            {
                 System.out.println(ex);
             }
         }
@@ -50,13 +62,16 @@ public abstract class JmsBase {
         System.out.println("FAILURE");
     }
 
-    protected void processJMSException(JMSException jmse) {
+    protected void processJMSException(JMSException jmse)
+    {
         System.out.println(jmse);
         Throwable innerException = jmse.getLinkedException();
-        if (innerException != null) {
+        if (innerException != null)
+        {
             System.out.println("innerException(s): ");
         }
-        while (innerException != null) {
+        while (innerException != null)
+        {
             System.out.println(innerException);
             innerException = innerException.getCause();
         }

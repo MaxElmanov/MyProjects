@@ -9,52 +9,67 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 
-public class JSONExecuter {
-
+public class JSONExecuter
+{
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().setLenient().create();
 
-    public ConnectionInfo read(String fileName) {
+    public ConnectionInfo read(String fileName)
+    {
         URI uri = null;
         FileInputStream fis = null;
         BufferedInputStream bis = null;
         StringBuffer stringBuffer = new StringBuffer();
 
-        try {
+        try
+        {
             uri = this.getClass().getClassLoader().getResource(fileName).toURI();
-        } catch (URISyntaxException e) {
+        } catch (URISyntaxException e)
+        {
             e.printStackTrace();
         }
 
         String path = Paths.get(uri).toString().replace("\\", "\\\\");
 
-        try {
+        try
+        {
             fis = new FileInputStream(path);
             bis = new BufferedInputStream(fis);
 
             int ch = 0;
-            while (true) {
+            while (true)
+            {
                 ch = bis.read();
-                if (ch == -1) {
+                if (ch == -1)
+                {
                     break;
                 }
                 stringBuffer.append((char) ch);
             }
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e)
+        {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
-        } finally {
-            if (fis != null) {
-                try {
+        } finally
+        {
+            if (fis != null)
+            {
+                try
+                {
                     fis.close();
-                } catch (IOException e) {
+                } catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
-            if (bis != null) {
-                try {
+            if (bis != null)
+            {
+                try
+                {
                     bis.close();
-                } catch (IOException e) {
+                } catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -65,7 +80,8 @@ public class JSONExecuter {
         return connectionInfo;
     }
 
-    public String write(String fileName, ConnectionInfo conninfo) {
+    public void write(String fileName, ConnectionInfo conninfo)
+    {
         String gson = GSON.toJson(conninfo);
 
         URI uri = null;
@@ -73,36 +89,43 @@ public class JSONExecuter {
         OutputStreamWriter osw = null;
         BufferedWriter bw = null;
 
-        try {
+        try
+        {
             uri = this.getClass().getClassLoader().getResource(fileName).toURI();
-        } catch (URISyntaxException e) {
+        } catch (URISyntaxException e)
+        {
             e.printStackTrace();
         }
 
         String path = Paths.get(uri).toString().replace("\\", "\\\\");
 
-        try {
+        try
+        {
             fos = new FileOutputStream(path);
             osw = new OutputStreamWriter(fos, "UTF-8");
             bw = new BufferedWriter(osw);
             bw.write(gson);
 
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e)
+        {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
-        } finally {
-            if (fos != null) {
-                try {
+        } finally
+        {
+            if (fos != null)
+            {
+                try
+                {
                     bw.close();
                     osw.close();
                     fos.close();
-                } catch (IOException e) {
+                } catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
         }
-
-        return gson;
     }
 }

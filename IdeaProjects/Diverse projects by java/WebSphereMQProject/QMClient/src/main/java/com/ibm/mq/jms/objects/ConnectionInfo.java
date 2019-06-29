@@ -2,7 +2,8 @@ package com.ibm.mq.jms.objects;
 
 import java.io.Serializable;
 
-public class ConnectionInfo implements Serializable {
+public class ConnectionInfo implements Serializable
+{
     private static final long serialVersionUID = 1L;
 
     private String host;
@@ -11,51 +12,63 @@ public class ConnectionInfo implements Serializable {
     private String queueManagerName;
     private String queueName;
 
-    public ConnectionInfo() {
+    public ConnectionInfo()
+    {
     }
 
-    public String getHost() {
+    public String getHost()
+    {
         return host;
     }
 
-    public void setHost(String host) {
+    public void setHost(String host)
+    {
         this.host = host;
     }
 
-    public int getPort() {
+    public int getPort()
+    {
         return port;
     }
 
-    public void setPort(int port) {
+    public void setPort(int port)
+    {
         this.port = port;
     }
 
-    public String getChannel() {
+    public String getChannel()
+    {
         return channel;
     }
 
-    public void setChannel(String channel) {
+    public void setChannel(String channel)
+    {
         this.channel = channel;
     }
 
-    public String getQueueManagerName() {
+    public String getQueueManagerName()
+    {
         return queueManagerName;
     }
 
-    public void setQueueManagerName(String queueManagerName) {
+    public void setQueueManagerName(String queueManagerName)
+    {
         this.queueManagerName = queueManagerName;
     }
 
-    public String getQueueName() {
+    public String getQueueName()
+    {
         return queueName;
     }
 
-    public void setQueueName(String queueName) {
+    public void setQueueName(String queueName)
+    {
         this.queueName = queueName;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "host: " + host + "\n" +
                 "port: " + port + "\n" +
                 "channel: " + channel + "\n" +
