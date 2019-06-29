@@ -1,17 +1,15 @@
 package com.ibm.mq.jms.launcher;
 
 import com.ibm.mq.jms.json.JSONExecuter;
-import com.ibm.mq.jms.json.objects.ConnectionInfo;
 import com.ibm.mq.jms.logics.JmsProducer;
+import com.ibm.mq.jms.objects.ConnectionInfo;
 
 public class ProducerLauncher {
 
-    public static void main(String[] args)
-    {
-        // Создание текстовых сообщений
+    public static void main(String[] args) {
         String[] messages = new String[20];
-        for(int i = 0; i < 20; i++){
-            messages[i] = "Hello " + (i+1);
+        for (int i = 0; i < 20; i++) {
+            messages[i] = "Hello " + (i + 1);
         }
 
         JSONExecuter json = new JSONExecuter();

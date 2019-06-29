@@ -1,7 +1,7 @@
 {
-  "host"             : "localhost",
-  "port"             : 1416,
-  "channel"          : "SYSTEM.DEF.SVRCONN",
-  "queueManagerName" : "IBMESBQM3",
-  "queueName"        : "INPUT"
+  "host": "localhost",
+  "port": 1416,
+  "channel": "SYSTEM.DEF.SVRCONN",
+  "queueManagerName": "IBMESBQM3",
+  "queueName": "INPUT"
 }

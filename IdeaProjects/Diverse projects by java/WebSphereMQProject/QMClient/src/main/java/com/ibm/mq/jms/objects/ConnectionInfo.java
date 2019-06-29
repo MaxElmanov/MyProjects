@@ -1,15 +1,15 @@
-package com.ibm.mq.jms.json.objects;
+package com.ibm.mq.jms.objects;
 
 import java.io.Serializable;
 
 public class ConnectionInfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String   host            ;
-    private int      port            ;
-    private String   channel         ;
-    private String   queueManagerName;
-    private String   queueName       ;
+    private String host;
+    private int port;
+    private String channel;
+    private String queueManagerName;
+    private String queueName;
 
     public ConnectionInfo() {
     }
@@ -42,7 +42,7 @@ public class ConnectionInfo implements Serializable {
         return queueManagerName;
     }
 
-    public  void setQueueManagerName(String queueManagerName) {
+    public void setQueueManagerName(String queueManagerName) {
         this.queueManagerName = queueManagerName;
     }
 
@@ -56,7 +56,7 @@ public class ConnectionInfo implements Serializable {
 
     @Override
     public String toString() {
-        return  "host: " + host + "\n" +
+        return "host: " + host + "\n" +
                 "port: " + port + "\n" +
                 "channel: " + channel + "\n" +
                 "queueManagerName: " + queueManagerName + "\n" +

@@ -7,19 +7,17 @@ import javax.jms.TextMessage;
 
 public class JmsProducer extends JmsBase {
 
-    private Queue       queue     = null;
-    private JMSProducer producer  = null;
-    private String      queueName = null;
+    private Queue queue = null;
+    private JMSProducer producer = null;
+    private String queueName = null;
 
-    public JmsProducer(String host, int port, String channel, String queueManagerName, String queueName)
-    {
+    public JmsProducer(String host, int port, String channel, String queueManagerName, String queueName) {
         super(host, port, channel, queueManagerName);
         this.queueName = queueName;
     }
 
-    public void send(String[] messages)
-    {
-        try (JMSContext context = cf.createContext()){
+    public void send(String[] messages) {
+        try (JMSContext context = cf.createContext()) {
             queue = context.createQueue(queueName);
             producer = context.createProducer();
 
