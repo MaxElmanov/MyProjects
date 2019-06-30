@@ -1,77 +1,68 @@
 package com.ibm.mq.jms.launcher;
 
 import com.ibm.mq.jms.customthread.ConsumerThread;
+import com.ibm.mq.jms.customthread.CustomThreadPoolExecutor;
 import com.ibm.mq.jms.customthread.ProducerThread;
 import com.ibm.mq.jms.timer.Timer;
 
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class Runner
 {
-    private static final byte CORE_POOL_SIZE = 2;
-    private static final byte MAXIMUM_POOL_SIZE = 4;
+    private static final byte CORE_POOL_SIZE = 3;
+    private static final byte MAXIMUM_POOL_SIZE = 3;
     private static final byte KEEP_ALIVE_TIME = 10;
     private static final byte AMOUNT_THREADS = 7;
+    private static final byte AMOUNT_PLACES_IN_QUEUE = 10;
     private static final byte AMOUNT_MESSAGE_TO_SEND = 10;
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(CORE_POOL_SIZE,
+        CustomThreadPoolExecutor executor = new CustomThreadPoolExecutor(CORE_POOL_SIZE,
                 MAXIMUM_POOL_SIZE,
                 KEEP_ALIVE_TIME,
                 TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(1),
+                new LinkedBlockingQueue<>(AMOUNT_PLACES_IN_QUEUE),
                 new MyReject());
 
-        if (args.length == 0 || args.length > 1)
-        {
+        CountDownLatch countDownLatch = new CountDownLatch(AMOUNT_THREADS);
+
+        if (args.length == 0 || args.length > 1) {
             System.out.println("Error: only one parameter must be pointed \nc-consumer \np-producer");
-        } else if (args[0].equalsIgnoreCase("c"))
-        {
+        }
+        else if (args[0].equalsIgnoreCase("c")) {
             Timer.start();
-            for (int i = 0; i < AMOUNT_THREADS; i++)
-            {
-                executor.submit(new ConsumerThread());
+            for (int i = 0; i < AMOUNT_THREADS; i++) {
+                executor.submit(new ConsumerThread(countDownLatch));
             }
-            Timer.stop();
-        } else if (args[0].equalsIgnoreCase("p"))
-        {
+        }
+        else if (args[0].equalsIgnoreCase("p")) {
             Timer.start();
-            for (int i = 0; i < AMOUNT_THREADS; i++)
-            {
-                executor.submit(new ProducerThread());
+            for (int i = 0; i < AMOUNT_THREADS; i++) {
+                executor.submit(new ProducerThread(countDownLatch));
             }
-            Timer.stop();
         }
 
+        countDownLatch.await();
+        Timer.stop();
         executor.shutdown();
-
-//        if (executor.isShutdown())
-//        {
-//            end(executor);
-//        }
+        end(executor);
     }
 
     private static void end(ThreadPoolExecutor executor)
     {
-        System.out.println("ActiveCount = " + executor.getActiveCount() + "\n" +
+        System.out.println("\nActiveCount = " + executor.getActiveCount() + "\n" +
                 "CompletedTaskCount = " + executor.getCompletedTaskCount() + "\n" +
                 "CorePoolSize = " + executor.getCorePoolSize() + "\n" +
                 "KeepAliveTime = " + executor.getKeepAliveTime(TimeUnit.MILLISECONDS) + "\n" +
                 "TaskCount = " + executor.getTaskCount() + "\n" +
-                "LargestPoolSiz e= " + executor.getLargestPoolSize() + "\n" +
+                "LargestPoolSiz e = " + executor.getLargestPoolSize() + "\n" +
                 "MaximumPoolSize = " + executor.getMaximumPoolSize() + "\n" +
                 "THE END");
 
     }
 
-    public static byte getAmountMessageToSend()
-    {
-        return AMOUNT_MESSAGE_TO_SEND;
-    }
+    public static byte getAmountMessageToSend() { return AMOUNT_MESSAGE_TO_SEND; }
 }
 
 class MyReject implements RejectedExecutionHandler

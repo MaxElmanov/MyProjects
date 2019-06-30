@@ -5,9 +5,17 @@ import com.ibm.mq.jms.logics.JmsConsumer;
 import com.ibm.mq.jms.objects.ConnectionInfo;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public class ConsumerThread implements Runnable
 {
+    CountDownLatch countDownLatch;
+
+    public ConsumerThread(CountDownLatch countDownLatch)
+    {
+        this.countDownLatch = countDownLatch;
+    }
+
     @Override
     public void run()
     {
@@ -15,12 +23,11 @@ public class ConsumerThread implements Runnable
         JmsConsumer consumer = new JmsConsumer(conn.getHost(), conn.getPort(), conn.getChannel(),
                 conn.getQueueManagerName(), conn.getQueueName());
         List<String> resultSms = consumer.get();
-        showInfo(resultSms);
-        for (String str : resultSms)
-        {
+        for (String str : resultSms) {
             System.out.println(str + "\n--------------------");
         }
-
+        showInfo(resultSms);
+        countDownLatch.countDown();
     }
 
     private void showInfo(List<String> resultSms)

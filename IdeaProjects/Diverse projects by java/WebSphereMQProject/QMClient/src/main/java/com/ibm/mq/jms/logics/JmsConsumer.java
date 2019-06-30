@@ -22,25 +22,20 @@ public class JmsConsumer extends JmsBase
     {
         List<String> resultSms = new ArrayList<>();
 
-        try (JMSContext context = cf.createContext();)
-        {
+        try (JMSContext context = cf.createContext();) {
             queue = context.createQueue(queueName);
             consumer = context.createConsumer(queue);
 
             TextMessage message = (TextMessage) consumer.receiveNoWait();
 
-            if (Objects.isNull(message))
-            {
+            if (Objects.isNull(message)) {
                 System.out.println("There is no any messages");
             }
-            while (!Objects.isNull(message))
-            {
-                try
-                {
+            while (!Objects.isNull(message)) {
+                try {
                     resultSms.add(message.getText());
                     message = (TextMessage) consumer.receiveNoWait();
-                } catch (JMSException e)
-                {
+                } catch (JMSException e) {
                     recordFailure(e);
                 }
             }

@@ -16,8 +16,7 @@ public abstract class JmsBase
     {
         JmsFactoryFactory ff;
 
-        try
-        {
+        try {
             ff = JmsFactoryFactory.getInstance(WMQConstants.WMQ_PROVIDER);
             cf = ff.createConnectionFactory();
 
@@ -26,8 +25,7 @@ public abstract class JmsBase
             cf.setStringProperty(WMQConstants.WMQ_CHANNEL, channel);
             cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_BINDINGS);
             cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, queueManagerName);
-        } catch (JMSException jmsex)
-        {
+        } catch (JMSException jmsex) {
             recordFailure(jmsex);
         }
     }
@@ -39,22 +37,18 @@ public abstract class JmsBase
 
     protected void recordFailure(Exception ex)
     {
-        if (ex != null)
-        {
-            if (ex instanceof JMSException)
-            {
+        if (ex != null) {
+            if (ex instanceof JMSException) {
                 processJMSException((JMSException) ex);
-            } else if (ex instanceof MQException && MQConstants.MQRC_Q_FULL == ((MQException) ex).getReason())
-            {
-                try
-                {
+            }
+            else if (ex instanceof MQException && MQConstants.MQRC_Q_FULL == ((MQException) ex).getReason()) {
+                try {
                     Thread.sleep(1000);
-                } catch (InterruptedException e)
-                {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            } else
-            {
+            }
+            else {
                 System.out.println(ex);
             }
         }
@@ -66,12 +60,10 @@ public abstract class JmsBase
     {
         System.out.println(jmse);
         Throwable innerException = jmse.getLinkedException();
-        if (innerException != null)
-        {
+        if (innerException != null) {
             System.out.println("innerException(s): ");
         }
-        while (innerException != null)
-        {
+        while (innerException != null) {
             System.out.println(innerException);
             innerException = innerException.getCause();
         }

@@ -12,7 +12,7 @@ public class Timer
     public static long stop()
     {
         long result = System.nanoTime() - timer;
-        System.out.println("Lost time: " + result);
+        System.out.println("\nLost time: " + result / 1_000 + " ms");
         return result;
     }
 }

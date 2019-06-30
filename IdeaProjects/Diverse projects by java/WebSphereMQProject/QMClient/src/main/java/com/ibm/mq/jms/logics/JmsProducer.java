@@ -21,20 +21,17 @@ public class JmsProducer extends JmsBase
 
     public void send(List<String> messages)
     {
-        try (JMSContext context = cf.createContext())
-        {
+        try (JMSContext context = cf.createContext()) {
             queue = context.createQueue(queueName);
             producer = context.createProducer();
 
             TextMessage message = null;
-            for (int i = 0; i < messages.size(); i++)
-            {
+            for (int i = 0; i < messages.size(); i++) {
                 message = context.createTextMessage(messages.get(i));
                 producer.send(queue, message);
                 System.out.println(String.format("Message #%d was sent", (i + 1)));
             }
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             recordFailure(e);
         }
     }

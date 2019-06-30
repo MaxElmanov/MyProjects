@@ -7,9 +7,17 @@ import com.ibm.mq.jms.objects.ConnectionInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public class ProducerThread implements Runnable
 {
+    CountDownLatch countDownLatch;
+
+    public ProducerThread(CountDownLatch countDownLatch)
+    {
+        this.countDownLatch = countDownLatch;
+    }
+
     @Override
     public void run()
     {
@@ -24,6 +32,7 @@ public class ProducerThread implements Runnable
                 conn.getQueueManagerName(), conn.getQueueName());
         producer.send(messages);
         showInfo(messages);
+        countDownLatch.countDown();
     }
 
     private void showInfo(List<String> messages)
