@@ -8,19 +8,23 @@ import com.ibm.mq.jms.objects.ConnectionInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ProducerThread implements Runnable
 {
-    CountDownLatch countDownLatch;
+    private CountDownLatch countDownLatch;
+    private ReentrantLock locker;
 
-    public ProducerThread(CountDownLatch countDownLatch)
+    public ProducerThread(CountDownLatch countDownLatch, ReentrantLock locker)
     {
         this.countDownLatch = countDownLatch;
+        this.locker = locker;
     }
 
     @Override
     public void run()
     {
+        locker.lock();
         List<String> messages = new ArrayList<>();
         for (int i = 0; i < Runner.getAmountMessageToSend(); i++) {
             messages.add("Hello " + (i + 1));
@@ -32,6 +36,7 @@ public class ProducerThread implements Runnable
         producer.send(messages);
         showInfo(messages.size());
         countDownLatch.countDown();
+        locker.unlock();
     }
 
     private void showInfo(int messagesSize)

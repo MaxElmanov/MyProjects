@@ -6,19 +6,23 @@ import com.ibm.mq.jms.objects.ConnectionInfo;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ConsumerThread implements Runnable
 {
-    CountDownLatch countDownLatch;
+    private CountDownLatch countDownLatch;
+    private ReentrantLock locker;
 
-    public ConsumerThread(CountDownLatch countDownLatch)
+    public ConsumerThread(CountDownLatch countDownLatch, ReentrantLock locker)
     {
         this.countDownLatch = countDownLatch;
+        this.locker = locker;
     }
 
     @Override
     public void run()
     {
+        locker.lock();
         ConnectionInfo conn = new JSONExecuter().read("consumer.json");
         MyJmsConsumer consumer = new MyJmsConsumer(conn.getHost(), conn.getPort(), conn.getChannel(),
                                                    conn.getQueueManagerName(), conn.getQueueName());
@@ -28,6 +32,7 @@ public class ConsumerThread implements Runnable
         }
         showInfo(resultSms);
         countDownLatch.countDown();
+        locker.unlock();
     }
 
     private void showInfo(List<String> resultSms)

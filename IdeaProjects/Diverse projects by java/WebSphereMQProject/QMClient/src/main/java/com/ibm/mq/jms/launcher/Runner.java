@@ -5,6 +5,7 @@ import com.ibm.mq.jms.customthread.ProducerThread;
 import com.ibm.mq.jms.timer.Timer;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Runner
 {
@@ -18,6 +19,7 @@ public class Runner
     public static void main(String[] args) throws InterruptedException
     {
         Timer timer = new Timer();
+        ReentrantLock locker = new ReentrantLock();
 
         ThreadPoolExecutor executor = new ThreadPoolExecutor(CORE_POOL_SIZE,
                                                              MAXIMUM_POOL_SIZE,
@@ -35,14 +37,14 @@ public class Runner
             System.out.println("Getting");
             timer.start();
             for (int i = 0; i < AMOUNT_THREADS; i++) {
-                executor.submit(new ConsumerThread(countDownLatch));
+                executor.submit(new ConsumerThread(countDownLatch, locker));
             }
         }
         else if (args[0].equalsIgnoreCase("p")) {
             System.out.println("Sending");
             timer.start();
             for (int i = 0; i < AMOUNT_THREADS; i++) {
-                executor.submit(new ProducerThread(countDownLatch));
+                executor.submit(new ProducerThread(countDownLatch, locker));
             }
         }
 
