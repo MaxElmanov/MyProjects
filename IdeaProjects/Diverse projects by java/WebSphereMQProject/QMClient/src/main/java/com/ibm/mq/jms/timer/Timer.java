@@ -29,7 +29,7 @@ public class Timer
         sum += difNano;
         long difSecond = TimeUnit.NANOSECONDS.toSeconds(sum);
 
-        if (difSecond >= SECONDS) {
+        if (difSecond >= SECONDS && difSecond < (SECONDS + 0.5)) {
             countMessages = count - previousCount;
             previousCount = count;
             System.out.printf("%d messages were sent\\got for %d sec\n\n", countMessages, difSecond);
