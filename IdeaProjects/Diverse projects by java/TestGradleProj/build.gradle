@@ -1,5 +1,5 @@
-plugins {
-    id 'java'
+plugins{
+    id  'war'
 }
 
 group 'ru.maxelmanov.testgradleproj'
@@ -11,11 +11,21 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+dependencies{
+    testCompile 'junit:junit:4.11'
 }
 
-import org.slf4j.LoggerFactory
+test{
+    testLogging.showStandardStreams = true
+}
 
-def slf4jLogger = LoggerFactory.getLogger('some-logger')
-slf4jLogger.info('An info log message logged using SLF4j')
+task runTest(type: JavaExec, dependsOn: test){
+    main = 'IntegrationTest'
+    classpath sourceSets.test.runtimeClasspath
+}
+
+check.dependsOn.add(runTest)
+
+task printMine{
+    print x
+}

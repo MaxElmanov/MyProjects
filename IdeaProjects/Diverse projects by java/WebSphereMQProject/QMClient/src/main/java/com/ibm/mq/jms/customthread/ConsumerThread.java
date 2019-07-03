@@ -11,12 +11,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ConsumerThread implements Runnable
 {
     private CountDownLatch countDownLatch;
-    private ReentrantLock locker;
+    private ReentrantLock locker = new ReentrantLock();
 
-    public ConsumerThread(CountDownLatch countDownLatch, ReentrantLock locker)
+    public ConsumerThread(CountDownLatch countDownLatch)
     {
         this.countDownLatch = countDownLatch;
-        this.locker = locker;
     }
 
     @Override
