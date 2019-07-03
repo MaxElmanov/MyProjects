@@ -51,3 +51,14 @@ task doTwoOperation{
         println "2 operation"
     }
 }
+
+task doThreeOperation{
+    group "myCustomgroup"
+    doLast{
+        println "3 operation"
+    }
+}
+
+doThreeOperation.onlyIf{
+    project.hasProperty("runit")
+}
