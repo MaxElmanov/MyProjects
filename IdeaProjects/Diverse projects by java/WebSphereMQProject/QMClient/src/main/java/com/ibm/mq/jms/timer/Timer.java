@@ -1,7 +1,6 @@
 package com.ibm.mq.jms.timer;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Timer
 {
@@ -10,7 +9,6 @@ public class Timer
     private static long previousCount;
     private static long countMessages;
     private static final byte SECONDS = 1;
-//    private ReentrantLock lock = new ReentrantLock();
 
     public synchronized void start()
     {
@@ -42,7 +40,7 @@ public class Timer
         return difNano;
     }
 
-    private synchronized void clearTimer()
+    private void clearTimer()
     {
         timer = System.nanoTime();
         sum = 0;

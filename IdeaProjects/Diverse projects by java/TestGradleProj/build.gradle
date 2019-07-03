@@ -15,50 +15,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-task myTasks_bla{
-    group "myTask"
-    description "bla-bla"
-    doLast{
-        println "this is my custom task..."
-    }
-}
+import org.slf4j.LoggerFactory
 
-task copyFile(type: Copy){
-    from 'D:\\from\\text.txt'
-    into 'D:\\to'
-}
-
-task HelloWorld{
-    doFirst{
-        println "Morning"
-    }
-
-    doLast{
-        println "evening"
-    }
-}
-
-task doOneOperation{
-    group "myCustomgroup"
-    doLast{
-        println "1 operation"
-    }
-}
-
-task doTwoOperation{
-    group "myCustomgroup"
-    doLast{
-        println "2 operation"
-    }
-}
-
-task doThreeOperation{
-    group "myCustomgroup"
-    doLast{
-        println "3 operation"
-    }
-}
-
-doThreeOperation.onlyIf{
-    project.hasProperty("runit")
-}
+def slf4jLogger = LoggerFactory.getLogger('some-logger')
+slf4jLogger.info('An info log message logged using SLF4j')
