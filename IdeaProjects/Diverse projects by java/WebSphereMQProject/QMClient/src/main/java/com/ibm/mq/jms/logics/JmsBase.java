@@ -25,7 +25,8 @@ public abstract class JmsBase
             cf.setStringProperty(WMQConstants.WMQ_CHANNEL, channel);
             cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_BINDINGS);
             cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, queueManagerName);
-        } catch (JMSException jmsex) {
+        }
+        catch (JMSException jmsex) {
             recordFailure(jmsex);
         }
     }
@@ -44,7 +45,8 @@ public abstract class JmsBase
             else if (ex instanceof MQException && MQConstants.MQRC_Q_FULL == ((MQException) ex).getReason()) {
                 try {
                     Thread.sleep(1000);
-                } catch (InterruptedException e) {
+                }
+                catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }

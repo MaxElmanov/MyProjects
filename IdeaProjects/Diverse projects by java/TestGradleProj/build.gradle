@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.maxelmanov.testgradleproj'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task myTasks_bla{
+    group "myTask"
+    description "bla-bla"
+    doLast{
+        println "this is my custom task..."
+    }
+}
+
+task copyFile(type: Copy){
+    from 'D:\\from\\text.txt'
+    into 'D:\\to'
+}
+
+task HelloWorld{
+    doFirst{
+        println "Morning"
+    }
+
+    doLast{
+        println "evening"
+    }
+}
+
+task doOneOperation{
+    group "myCustomgroup"
+    doLast{
+        println "1 operation"
+    }
+}
+
+task doTwoOperation{
+    group "myCustomgroup"
+    doLast{
+        println "2 operation"
+    }
+}

@@ -1,7 +1,7 @@
 package com.ibm.mq.jms.customthread;
 
 import com.ibm.mq.jms.json.JSONExecuter;
-import com.ibm.mq.jms.logics.JmsConsumer;
+import com.ibm.mq.jms.logics.MyJmsConsumer;
 import com.ibm.mq.jms.objects.ConnectionInfo;
 
 import java.util.List;
@@ -20,8 +20,8 @@ public class ConsumerThread implements Runnable
     public void run()
     {
         ConnectionInfo conn = new JSONExecuter().read("consumer.json");
-        JmsConsumer consumer = new JmsConsumer(conn.getHost(), conn.getPort(), conn.getChannel(),
-                conn.getQueueManagerName(), conn.getQueueName());
+        MyJmsConsumer consumer = new MyJmsConsumer(conn.getHost(), conn.getPort(), conn.getChannel(),
+                                                   conn.getQueueManagerName(), conn.getQueueName());
         List<String> resultSms = consumer.get();
         for (String str : resultSms) {
             System.out.println(str + "\n--------------------");

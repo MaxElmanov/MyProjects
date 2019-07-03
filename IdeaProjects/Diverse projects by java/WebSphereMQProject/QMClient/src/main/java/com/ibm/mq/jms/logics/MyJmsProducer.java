@@ -1,19 +1,21 @@
 package com.ibm.mq.jms.logics;
 
+import com.ibm.mq.jms.timer.Timer;
+
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
-import javax.jms.TextMessage;
 import java.util.List;
 
-public class JmsProducer extends JmsBase
+public class MyJmsProducer extends JmsBase
 {
 
     private Queue queue = null;
     private JMSProducer producer = null;
     private String queueName = null;
+    Timer timer = new Timer();
 
-    public JmsProducer(String host, int port, String channel, String queueManagerName, String queueName)
+    public MyJmsProducer(String host, int port, String channel, String queueManagerName, String queueName)
     {
         super(host, port, channel, queueManagerName);
         this.queueName = queueName;
@@ -25,13 +27,16 @@ public class JmsProducer extends JmsBase
             queue = context.createQueue(queueName);
             producer = context.createProducer();
 
-            TextMessage message = null;
-            for (int i = 0; i < messages.size(); i++) {
-                message = context.createTextMessage(messages.get(i));
+            String message = null;
+            timer.start();
+            for (int smsNumber = 0; smsNumber < messages.size(); smsNumber++) {
+                message = messages.get(smsNumber);
                 producer.send(queue, message);
-                System.out.println(String.format("Message #%d was sent", (i + 1)));
+                timer.stop(smsNumber);
+//                System.out.println(String.format("Message #%d was sent", (smsNumber + 1)));
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             recordFailure(e);
         }
     }
