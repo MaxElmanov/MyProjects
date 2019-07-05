@@ -6,7 +6,7 @@ plugins {
 group 'QMProject'
 version '1.0-SNAPSHOT'
 
-mainClassName = 'com.ibm.mq.jms.launcher.Runner.java'
+mainClassName = 'com.ibm.mq.jms.launcher.Runner'
 
 sourceCompatibility = 1.8
 
