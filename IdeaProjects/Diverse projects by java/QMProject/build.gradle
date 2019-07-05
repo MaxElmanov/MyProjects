@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id "application"
+}
+
+group 'QMProject'
+version '1.0-SNAPSHOT'
+
+mainClassName = 'com.ibm.mq.jms.launcher.Runner.java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies{
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "com.ibm.mq:com.ibm.mq.allclient:9.1.1.0"
+    compile "javax.jms:javax.jms-api:2.0.1"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.13"
+    compile "com.google.code.gson:gson:2.8.5"
+}
+
+task myTask(type: Copy, dependsOn:test){
+    from("config")
+    into("${buildDir}/config")
+}
+
+check.dependsOn.add(myTask)

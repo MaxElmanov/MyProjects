@@ -1,31 +1,29 @@
-plugins{
-    id  'war'
-}
+apply plugin: "idea"
+apply plugin: "java"
+apply plugin: "application"
+apply plugin: "war"
 
-group 'ru.maxelmanov.testgradleproj'
-version '1.0-SNAPSHOT'
+mainClassName = 'Run'
 
-sourceCompatibility = 1.8
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
 }
 
-dependencies{
-    testCompile 'junit:junit:4.11'
+distributions {
+    main {
+        contents {
+            from("config") { into("build\\config") }
+        }
+    }
+} 
+
+task copyTask(type: Copy) {
+    into("${buildDir}/config")
+    from("config")
 }
 
-test{
-    testLogging.showStandardStreams = true
-}
-
-task runTest(type: JavaExec, dependsOn: test){
-    main = 'IntegrationTest'
-    classpath sourceSets.test.runtimeClasspath
-}
-
-check.dependsOn.add(runTest)
-
-task printMine{
-    print x
-}
