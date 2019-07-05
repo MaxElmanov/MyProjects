@@ -1,7 +1,7 @@
 {
   "host": "localhost",
-  "port": 1414,
+  "port": 1415,
   "channel": "SYSTEM.DEF.SVRCONN",
-  "queueManagerName": "IBMESBQM1",
+  "queueManagerName": "IBMESBQM2",
   "queueName": "IBM.ESB.IN"
 }
