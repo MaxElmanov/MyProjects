@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>Подборка интересных рецептов и способов приготавления</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- gallery -->
+<link type="text/css" rel="stylesheet" href="/css/cm-overlay.css" />
+<!-- //gallery -->
+<!-- font-awesome icons -->
+<link href="/css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<!-- font -->
+<link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!-- //font -->
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+	<div class="agileinfo-dot">
+		<!-- banner -->
+		<div class="banner jarallax">
+			<div class="header">
+				<div class="container">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+							<div class="agileinfo-social-grids">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-rss"></i></a></li>
+									<li><a href="#"><i class="fa fa-vk"></i></a></li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+							<nav>
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="/">Главная</a></li>
+									<li class="active"><a href="/luck.php">Случайная</a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- /.navbar-collapse -->
+					</nav>
+				</div>
+			</div>
+			<div class="w3layouts-banner-info">
+				<div class="container">
+					<div class="agileits-logo">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //banner -->
+	</div>
+	
+	<!-- about -->
+	<div class="about" id="about">
+		<div class="container">
+			
+			<div class="w3-about-grids">
+				<div class="col-md-9 w3-about-left">
+					<div class="short"><div class="posttitle"><a href="/6088920-Issledovatelskaya-rabota-lyubimoe-blyudo-moej-semi.html">Исследовательская работа любимое блюдо моей семьи</a></div><img src="https://arhivurokov.ru/kopilka/uploads/user_file_53a2836caf262/img_user_file_53a2836caf262_9.jpg" alt="Проектная работа "Любимое блюдо моей семьи»" class="kart1"><br>Филиал Гимназии ООШ сСафарово Любимое блюдо моей семьи Выполнила ученица 4 класса.</div><div class="short"><div class="posttitle"><a href="/2365651-CHto-prigotovit-iz-grudinki-na-kosti.html">Что приготовить из грудинки на кости</a></div><img src="http://kallorii.info/uploads/taginator/Jul-2013/grudinka-na-kosti.jpg" alt="Узнай как приготовить свиную грудинку, а также правильную ..." class="kart1"><br>Нежнейшая свиная грудинка  чудесное мясо из которого можно приготовить десятки.</div><div class="short"><div class="posttitle"><a href="/8757605-Gotovye-vafli-s-kremom.html">Готовые вaфли с кремом</a></div><img src="http://wellrecipes.ru/foto/krem-belkovyy.jpg" alt="Вафли "Марсельские" с какао-кремом - кулинарный рецепт" class="kart1"><br>Получились нежные вафли с не жирным кремом  Готовый крем убрать в холодильник на пару.</div><div class="short"><div class="posttitle"><a href="/7704697-Prigotovlenie-smesi-dlya-tatu-iz-hny.html">Приготовление смеси для тату из хны</a></div><img src="http://queen-time.ru/media/staff/3d596e06ac.jpg" alt="Татуировка хной (мехенди) в домашних условиях. Рецепты хны ..." class="kart1"><br>Рецепты смеси хны для  Приготовление пасты из хны в  Как приготовить хну для тату.</div><div class="short"><div class="posttitle"><a href="/9595525-Pirozhki-s-kartoshkoj-recepty-s-foto.html">Пирожки с картошкой рецепты с фото</a></div><img src="https://fbexternal-a.akamaihd.net/safe_image.php?d=AQDbShE5MPkM9aKp&url=http%3A%2F%2Fcoocook.me%2Fwp-content%2Fuploads%2F2016%2F11%2Fb502f6b9168c51d6288bf3c46b1622ae_148651.jpg&_nc_hash=AQDkudJvbylXv2_g" alt="Пирожки с картошкой, рецепты с фото на RussianFood.com ..." class="kart1"><br>Пирожки с картошкой можно приготовить несколькими способами Подробней про пирожки с.</div><div class="short"><div class="posttitle"><a href="/6782533-Plyushki-s-dzhemom-bez-drozhzhej-recepty.html">Плюшки с джемом без дрожжей рецепты</a></div><img src="http://itd1.mycdn.me/image?id=851771950937&t=20&plc=WEB&tkn=*Na94XMKvDw9Iwu8b5AD5ni3unBw" alt="Плюшки дрожжевые с джемом рецепт 👌 с фото пошаговый | Едим ..." class="kart1"><br>Рецепт приготовления Плюшки дрожжевые с джемом  готовим вкусно и полезно  рецепт с фото.</div><div class="short"><div class="posttitle"><a href="/2403574-Gotovye-zadaniya-dlya-den-rozhdeniya.html">Готовые задания для день рождения</a></div><img src="http://drkvest.ru/materials/content/40/19.jpg" alt="" class="kart1"><br></div><div class="short"><div class="posttitle"><a href="/4785665-H-gotovye-kalkulyacionnye-karty-blyud.html">H готовые калькуляционные карты блюд</a></div><img src="http://romeolove.ru/wp-content/uploads/2017/06/50803-registraciya-izmeneniy-v-ooo-v-2016-godu-poshagovaya-instrukciya.jpg" alt="" class="kart1"><br></div><div class="short"><div class="posttitle"><a href="/4009300-Kak-prigotovit-seledku-iz-rechnoj-ryby.html">Kak приготовить селедку из речной рыбы</a></div><img src="http://kedem.ru/photo/recipe/rnamebig/seld-slabosolyonaya-po-domashnemu.jpg" alt="Как приготовить свежую сельдь пошаговое приготовление ..." class="kart1"><br>Можно приготовить селедку на  Если сельдь в горчичном соусе готовят из свежей рыбы.</div><div class="short"><div class="posttitle"><a href="/3490476-Plany-urokov-po-predmetu-kulinariya-tehnologiya-npo.html">Планы уроков по предмету кулинария технология нпо</a></div><img src="https://allyslide.com/thumbs/0020ef74ff10c72aa5f7de74ffea610c/img0.jpg" alt="План-конспект урока по технологии по теме: План - конспект ..." class="kart1"><br>План  конспект урока предназначен для проведения теоретического занятия по Кулинарии.</div><div class="short"><div class="posttitle"><a href="/1545852-Gotovye-doklady-po-romanu-master-i-margarita.html">Готовые доклады по роману мастер и маргарита</a></div><img src="https://lh4.googleusercontent.com/h-VjiPQbwkw4B1iaSki9N9F8kgg9k3ZL0pvNpdA6NUtT4yASq1HIibyLNN3bal_B98ajUw=w1200-h630-p" alt="Доклад: Булгаков "Мастер и Маргарита" - Литература ..." class="kart1"><br>Доклад Булгаков Мастер и Маргарита Свою главную книгу называвшуюся тогда Черный маг или.</div><div class="short"><div class="posttitle"><a href="/3686797-Vinegret-s-gorohom-recept.html">Винегрет с горохом рецепт</a></div><img src="http://saormoda.ru/prefix/7a7c809acfa7bd2c1f9ea185b3ea56b7.jpg" alt="Рецепт: Винегрет с горошком - все рецепты России" class="kart1"><br>Я люблю добавлять в винегрет консервированный зеленый горошек Овощи варю заранее за день.</div><div class="short"><div class="posttitle"><a href="/7248319-Gotovye-mezhkomnatnye-dveri-kupit-v-minske-cvet-milanskij-oreh.html">Готовые межкомнатные двери купить в минске цвет миланский орех</a></div><img src="https://dvermarkt.ru/image/cache/catalog/pvh/3/ge-catalog-pvh-2-modena_dg_milanskiy_oreh_807-700x1200.jpg" alt="Межкомнатная дверь ПВХ Омега Миланский орех — купить пвх ..." class="kart1"><br>Купить межкомнатную ПВХ дверь Омега цвета Миланский орех недорого в интернетмагазине АМК.</div><div class="short"><div class="posttitle"><a href="/6668463-Gotovye-tehnologicheskie-karty-blyud-skachat.html">Готовые технологические карты блюд скачать</a></div><img src="http://edu.znate.ru/tw_files/1643/d-1642123/7z-docs/1_html_7426a5c2.png" alt="Готовое меню скачать, технико-технологические карты" class="kart1"><br>Приобретая пакет Готовое типовое меню вы получаете техникотехнологические карты.</div><div class="short"><div class="posttitle"><a href="/2863145-Pasta-s-myasom-i-gribami-recept.html">Паста с мясом и грибами рецепт</a></div><img src="https://s-media-cache-ak0.pinimg.com/736x/da/91/79/da9179fb6e17292a6b1795e88ac1cd05.jpg" alt="Паста с мясом - рецепты с фото на Повар.ру (39 рецептов ..." class="kart1"><br>Для любителей сытно и вкусно поесть представляем рецепты пасты с мясом Вы можете выбрать.</div><div class="short"><div class="posttitle"><a href="/5430238-CHto-prigotovit-na-novogodnij-sto-2015.html">Что приготовить на новогодний сто 2015</a></div><img src="https://2018god.com/wp-content/uploads/Novyie-retseptyi-salatov-na-2018-god-3.jpg" alt="Что приготовить на Новый год 2018: новогодние салаты ..." class="kart1"><br>Что приготовить на Новый год 2016 к  будет новый год 2015  тоже на новый год что.</div><div class="short"><div class="posttitle"><a href="/9922054-Pirog-sharlotka-s-yablokami-recept-v-multivarke-skarlet.html">Пирог шарлотка с яблоками рецепт в мультиварке скарлет</a></div><img src="http://bluda.biz/uploads/taginator/Feb-2013/sharlotka-prigotovlenie-v-multivarke-skarlet.jpg" alt="Шарлотка в мультиварке Скарлет - Рецепты для мультиварки" class="kart1"><br>Приготовление шарлотки в мультиварке Скарлет Яблоки необходимо  Пироги с ливером в.</div><div class="short"><div class="posttitle"><a href="/3803856-Kartoshka-kabachok-luk-morkov-recept.html">Картошка кабачок лук морковь рецепт</a></div><img src="http://s.fishki.net/upload/post/201506/29/1580982/18_1.jpg" alt="Блюда из картофеля, Блюда из кабачков, рецепты с фото на ..." class="kart1"><br>картофель кабачки лук репчатый  кабачок морковь лук  Доступный рецепт из картошки и.</div><div class="short"><div class="posttitle"><a href="/5784407-H-gotovyj-server-na-kontru-v-34.html">H готовый сервер на контру в 34</a></div><img src="http://mircsgo.ru/wp-content/uploads/2017/04/1-3.jpg" alt="Скачать сервер на контр страйк соурс в 34" class="kart1"><br>Это чистая сорка Скачать сервер на контр страйк соурс в 34 полностью на русском язые В.</div><div class="short"><div class="posttitle"><a href="/7707827-Klassicheskie-meksikanskie-recepty.html">Классические мексиканские рецепты</a></div><img src="https://realdeals.eu.com/wp-content/uploads/2012/12/media.caspianmedia.comimagea6068521320b80fec7c91f1d9ccf4080-d93427308c107e399e119ceb7300e19833caac51.jpg" alt="Мексиканская кухня, мексиканские блюда - рецепты с фото на ..." class="kart1"><br>Блюда мексиканской кухни традиционное мексиканское блюда пошаговые кулинарные рецепты.</div><a href="/page/1">1</a> &nbsp; <a href="/page/2">2</a> &nbsp; <a href="/page/3">3</a> &nbsp; <a href="/page/4">4</a> &nbsp; <a href="/page/2"> ></a> &nbsp; <a href="/page/29">>></a> &nbsp; 				</div>
+				
+				<div class="col-md-3 w3-about-left">
+					Последние записи
+				<ul><li><a href="/6104437-Gotovaya-aska-na-nokia-7310.html">Готовая аська на nokia 7310</a></li><li><a href="/1691077-Vkusnaya-solyanka-iz-svezhej-kapusty-recept-s-foto.html">Вкусная солянка из свежей капусты рецепт с фото</a></li><li><a href="/7148591-Italyanskij-myasnoj-pirog-recept-s-foto-poshagovo.html">Итальянский мясной пирог рецепт с фото пошагово</a></li><li><a href="/6425780-Prigotovlenie-hlebobulochnyh-muchnyh-i-konditerskih-izdelij-otvety-k-ekzamenu.html">Приготовление хлебобулочных мучных и кондитерских изделий ответы к экзамену</a></li><li><a href="/2027369-Prigotovlenie-prikormki-dlya-donnoj-snasti.html">Приготовление прикормки для донной снасти</a></li><li><a href="/3527268-Zapekanka-tvorozhnaya-s-morkovyu-i-makaronami-recept.html">Запеканка творожная с морковью и макаронами рецепт</a></li><li><a href="/1230296-Prigotovlenie-syrcovogo-pryanichnogo-testa.html">Приготовление сырцового пряничного теста</a></li><li><a href="/3677900-Vkusnye-i-krasivye-buterbrody-recepty-s-foto.html">Вкусные и крaсивые бутерброды рецепты с фото</a></li><li><a href="/4227521-Gotovaya-baza-1s-skachat-s-torrenta.html">Готовая база 1с скачать с торрента</a></li></ul>				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //about -->
+	
+	
+	
+	<!-- newsletter -->
+	<div class="newsletter">
+		<div class="container">
+			<div class="col-sm-6 newsletter-left">
+				
+			</div>
+			<div class="col-sm-6 newsletter-right">
+				<form action="#" method="post">
+					<input type="text" placeholder="Subscribe" name="Subscribe" required="">
+					<button class="btn1"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+				</form>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!-- //newsletter -->
+	
+	<!-- footer -->
+	<footer>
+		<div class="container">
+			<div class="copyright">
+				<p><!--LiveInternet counter--><script type="text/javascript">
+document.write("<a href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t45.4;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet' "+
+"border='0' width='31' height='31'><\/a>")
+</script><!--/LiveInternet-->
+
+</p>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- //footer -->
+	<script src="/js/jarallax.js"></script>
+	<script src="/js/SmoothScroll.min.js"></script>
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>
+	<script src="/js/responsiveslides.min.js"></script>
+	<script type="text/javascript" src="/js/move-top.js"></script>
+	<script type="text/javascript" src="/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>	
+</html>
