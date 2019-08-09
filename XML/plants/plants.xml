@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<plant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="plants.xsd">
+	<genus>Cercis</genus>
+	<species>canadenis</species>
+	<common_name>Elvira</common_name>
+	<height>100</height>
+	<begin_bloom_date>2019-03-13</begin_bloom_date>
+	<end_bloom_date>2019-12-22</end_bloom_date>
+	<!-- true=1 and false=0-->
+	<edible>true</edible>
+	<sun_tolerance>full_shade</sun_tolerance>
+	<bloom_color>red</bloom_color>
+	<specimens>
+		<specimen>
+			<latitude>-1.8989</latitude>
+			<longitude>-2.0</longitude>
+			<planted_by>me</planted_by>
+			<comments>bob</comments>
+		</specimen>
+		<specimen>
+			<latitude>3.08</latitude>
+			<longitude>4.98</longitude>
+			<planted_by>you</planted_by>
+			<comments>Hollly</comments>
+		</specimen>
+	</specimens>
+</plant>
