@@ -1,61 +1,39 @@
 import java.io.*;
+import java.net.InetAddress;
 import java.util.Scanner;
 
 public class Client
 {
     public static void main(String[] args)
     {
-//        try {
-//            InetAddress[] iaRemoteAll = InetAddress.getAllByName("yandex.ru");
-//            for(int i = 0;i < iaRemoteAll.length; i++)
-//            {
-//                InetAddress ia = iaRemoteAll[i];
-//                System.out.println("Address: " + ia);
-//                System.out.println("Host name: " +
-//                                           ia.getHostName());
-//                byte[] ip = new byte[4];
-//                ip = ia.getAddress();
-//                System.out.println("IP Address: " +
-//                                           (0xff & (int)ip[0]) + "." +
-//                                           (0xff & (int)ip[1]) + "." +
-//                                           (0xff & (int)ip[2]) + "." +
-//                                           (0xff & (int)ip[3]));
-//                System.out.println();
-//            }
-//        }
-//        catch (UnknownHostException e) {
-//            e.printStackTrace();
-//        }
-
         Scanner sc = new Scanner(System.in);
         String fileName = null;
 
-        try (Phone phone = new Phone("127.0.0.1", 8080)) {
+        try (Phone phone = new Phone(InetAddress.getLocalHost().getHostName(), 5555)) {
             System.out.println("client connected");
 
-                System.out.print("Enter file name: ");
-                fileName = sc.nextLine();
+            System.out.print("Enter file name: ");
+            fileName = sc.nextLine();
 
-                //form a bufferReader
-                BufferedReader br = createBufferReader(fileName);
+            //form a bufferReader
+            BufferedReader br = createBufferReader(fileName);
 
-                //form a request to server
-                String fullRequest = getFullRequest(br);
+            //form a request to server
+            String fullRequest = getFullRequest(br);
 
-                //send a message to server
-                phone.writeLine(fullRequest);
+            //send a message to server
+            phone.writeLine(fullRequest);
 
-                System.out.println("request: " + Phone.CRLF + fullRequest);
+            System.out.println("request: " + Phone.CRLF + fullRequest);
 
-                //get a response from server
-                String response = getResponse(phone);
+            //get a response from server
+            String response = getResponse(phone);
 
-                System.out.println("response: " + response);
+            System.out.println("response: " + Phone.CRLF + response);
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private static String getResponse(Phone phone)
@@ -90,8 +68,19 @@ public class Client
     private static BufferedReader createBufferReader(String fileName)
     {
         InputStream is = Client.class.getClassLoader().getResourceAsStream(fileName);
+        if (is == null) {
+            try {
+                throw new Exception();
+            }
+            catch (Exception e) {
+                System.out.println("Such a file is not existing");
+                System.exit(-1);
+            }
+        }
+
         try {
-            return new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            return br;
         }
         catch (UnsupportedEncodingException e) {
             e.printStackTrace();

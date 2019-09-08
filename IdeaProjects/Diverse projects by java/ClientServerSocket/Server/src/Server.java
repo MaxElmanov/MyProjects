@@ -1,15 +1,25 @@
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Server
 {
-
-    public static void main(String[] args)
+    public static void main(String[] args) throws UnknownHostException
     {
-        try (ServerSocket serverSocket = new ServerSocket(8080)) {
+        List<String> hostNames = new ArrayList<String>(){
+            {add("localhost");}
+            {add("yandex.ru");}
+            {add("google.com");}
+            {add(InetAddress.getLocalHost().getHostName());} //DESKTOP-5FFID9T
+        };
+
+        try (ServerSocket serverSocket = new ServerSocket(5555)) {
 
             while (true)
-                try (Phone phone = new Phone(serverSocket)) {
+                try (Phone phone = new Phone(serverSocket, hostNames)) {
 
                     StringBuilder sb = new StringBuilder();
 
@@ -24,13 +34,13 @@ public class Server
 
                     //form a response for a client
                     String[] strs = sb.toString().split(Phone.CRLF);
-                    StringBuilder response = new StringBuilder().append("Request was successfully performed. Here is:" + Phone.CRLF);
+                    StringBuilder response = new StringBuilder().append(getRequestStatus(sb.toString()) + Phone.CRLF);
 
                     for (int i = 0; i < strs.length; i++) {
                         response.append((i + 1) +
-                                        " - " +
-                                        strs[i] +
-                                        Phone.CRLF);
+                                                " - " +
+                                                strs[i] +
+                                                Phone.CRLF);
                     }
                     response.append(Phone.LAST_LINE);
 
@@ -50,4 +60,19 @@ public class Server
 
     }
 
+    private static String getRequestStatus(String request)
+    {
+        if (request.toUpperCase().contains("CREATE")) {
+            return "Table was successfully created. ";
+        }
+        else if (request.toUpperCase().contains("SELECT")) {
+            return "Select query was successfully executed. ";
+        }
+        else if (request.toUpperCase().contains("DELETE")) {
+            return "Delete query was successfully executed. ";
+        }
+        else {
+            return "Request was successfully performed. ";
+        }
+    }
 }
