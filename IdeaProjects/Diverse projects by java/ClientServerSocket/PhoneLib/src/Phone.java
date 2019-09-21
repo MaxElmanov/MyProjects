@@ -22,8 +22,9 @@ public class Phone implements Closeable
             reader = createReader();
             writer = createWriter();
         }
-        catch (IOException var4) {
-            var4.printStackTrace();
+        catch (IOException e) {
+            //TIMEOUT EXCEPTION
+            e.printStackTrace();
         }
     }
 

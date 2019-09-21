@@ -9,7 +9,7 @@ public class Client
         Scanner sc = new Scanner(System.in);
         String fileName = null;
 
-        try (Phone phone = new Phone(InetAddress.getLocalHost().getHostName(), 5555)) {
+        try (Phone phone = new Phone("5.255.255.70", 5555)) {
             System.out.println("client connected");
 
             System.out.print("Enter file name: ");
