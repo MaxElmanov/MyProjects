@@ -1,10 +1,12 @@
+.gitignore
+
 # Eclipse
 .classpath
 .project
 .settings/
 
 # Intellij
-.idea/
+.idea/*.*
 *.iml
 *.iws
 
@@ -20,8 +22,6 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
-.gitignore
 
 # Mac
 .DS_Store

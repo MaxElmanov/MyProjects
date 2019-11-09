@@ -19,24 +19,24 @@ public class TetradTableExecutor
 
         for (int i = 0; i < postfixForm.length(); i++) {
 
-            Character symbol = postfixForm.charAt(i);
+            String symbol = String.valueOf(postfixForm.charAt(i));
 
             Matcher matcherOperations = Pattern.compile("[*/+-]{1,1}").matcher(symbol.toString());
 
+            String op_2 = null; //operand 2
+            String op_1 = null; //operand 1
+            String operation = null;
+
             if (matcherOperations.matches()) {
-
                 //clean stack
-                String op_2 = stack.pop(); //operand 2
-                String op_1 = stack.pop(); //operand 1
-
-                String operation = String.valueOf(symbol);
-
-                createTableRow(operation, op_1, op_2);
+                op_2 = stack.pop(); //operand 2
+                op_1 = stack.pop(); //operand 1
             }
             else {
-                stack.push(symbol.toString());
-                createTableRow(stack.getFirst(), null, null);
+                stack.push(symbol);
             }
+
+            createTableRow(symbol, op_1, op_2);
         }
 
         return table.toString();
