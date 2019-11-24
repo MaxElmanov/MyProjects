@@ -4,21 +4,12 @@ import ru.semantic.analysis.logics.PostfixFormExecutor;
 import ru.semantic.analysis.logics.TetradTableExecutor;
 
 import java.io.*;
-import java.net.URISyntaxException;
 
 public class SemanticAnalysis
 {
-    public static void main(String[] args) throws URISyntaxException
+    public static void main(String[] args)
     {
-//        if(args.length <= 0) {
-//            try { throw new Exception("Enter result file."); }
-//            catch (Exception e) {
-//                e.printStackTrace();
-//                System.exit(-1);
-//            }
-//        }
-
-        String expression = "((a+b)*c-d)/e+f*k"; //	a b - c * d e f + / +
+        String expression = "a+(b-c*d)"; //	abcd*-+
 
         System.out.println("Выражение:" + expression);
 
@@ -53,6 +44,7 @@ public class SemanticAnalysis
     }
 }
 
+//        String expression = "((a - b) + c) * d"; //	ab-c+d*
 //        String expression = "a + b * c";                   //   a b c * +
 //        String expression = "a + b - c * d";               //	a b c d * - +
 //        String expression = "a + b * c - d";               //   a b c * + d -
@@ -61,6 +53,6 @@ public class SemanticAnalysis
 
 //        String expression = "99 * a - b"; //	error double number
 //        String expression = "9 * a - bb"; //	error double letter
-//        String expression = "99 * a - df"; //	error double number and double letter
-//        String expression = "-9 * a - d"; //	error double number and double letter
+//        String expression = "99 * a -* df"; //	error double number and double letter
 //        String expression = "9 * a - (-d)"; // error double number and double letter
+//        String expression = "-9 * a - d"; // error double number and double letter

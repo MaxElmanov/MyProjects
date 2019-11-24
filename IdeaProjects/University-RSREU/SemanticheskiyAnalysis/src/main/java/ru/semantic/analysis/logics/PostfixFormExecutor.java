@@ -12,10 +12,12 @@ public class PostfixFormExecutor
     private StringBuilder expression;
     private StringBuilder postfixForm = new StringBuilder();
     private Deque<Character> stack = new ArrayDeque<>(); //operations
-    private Pattern operationPattern = Pattern.compile("[+*/(-]{1}", Pattern.CASE_INSENSITIVE);
+    private Pattern operationPattern = Pattern.compile("[+*/-]{1}", Pattern.CASE_INSENSITIVE);
     private Pattern letterPattern = Pattern.compile("[a-zA-Z]{1}|[0-9]{1,}", Pattern.CASE_INSENSITIVE);
 
-    public PostfixFormExecutor() { }
+    public PostfixFormExecutor()
+    {
+    }
 
     public PostfixFormExecutor(String expression)
     {
@@ -36,31 +38,31 @@ public class PostfixFormExecutor
     {
         String exp = expression.toString().replace(" ", "");
 
-        for (int i = 0; i < exp.length() - 2; i++) {
+        for (int i = 0; i < exp.length() - 1; i++) {
             String symbol_1 = String.valueOf(exp.charAt(i));
             String symbol_2 = String.valueOf(exp.charAt(i + 1));
-            String symbol_3 = String.valueOf(exp.charAt(i + 2));
 
-            Matcher operationMatcher_1 = operationPattern.matcher(symbol_1);
-            Matcher operationMatcher_2 = operationPattern.matcher(symbol_2);
-            Matcher operationMatcher_3 = operationPattern.matcher(symbol_3);
+            Matcher OperationMatcher_1 = operationPattern.matcher(symbol_1);
+            Matcher OperationMatcher_2 = operationPattern.matcher(symbol_2);
 
-            Matcher letterMatcher_1 = letterPattern.matcher(symbol_1);
-            Matcher letterMatcher_2 = letterPattern.matcher(symbol_2);
-            Matcher letterMatcher_3 = letterPattern.matcher(symbol_3);
+            Matcher LetterMatcher_1 = letterPattern.matcher(symbol_1);
+            Matcher LetterMatcher_2 = letterPattern.matcher(symbol_2);
 
-            if (operationMatcher_1.matches() && operationMatcher_2.matches() || letterMatcher_1.matches() && letterMatcher_2.matches()) {
-
-                if (!symbol_1.equals("(") && !symbol_1.equals(")") && !symbol_2.equals("(") && !symbol_2.equals(")")) {
-                    throwError("Error: Expression consists from double or more letters or numbers. May use only numbers (0-9) and letters (a-z).");
-                }
+            // 99 + dd  ||  9 +- d
+            if (OperationMatcher_1.matches() && OperationMatcher_2.matches() || LetterMatcher_1.matches() && LetterMatcher_2.matches()) {
+                throwError("Error: Expression consists from double or more letters or numbers. May use only numbers (0-9) and letters (a-z).");
             }
 
-            if (i == 0 && operationMatcher_1.matches() && !symbol_1.equalsIgnoreCase("(")||
-                operationMatcher_1.matches() && operationMatcher_2.matches() && operationMatcher_3.matches())
-            {
-                throwError("Error: Must not use negative a letter or a number. You may forget about operand before sign '-' ");
+            // -9 + c
+            if (i == 0 && OperationMatcher_1.matches() && LetterMatcher_2.matches()) {
+                throwError("Error: Must not use unary operations.");
             }
+
+            // (-b)
+            if (symbol_1.equalsIgnoreCase("(") && OperationMatcher_2.matches()) {
+                throwError("Error: Must not use unary operations.");
+            }
+
         }
     }
 
@@ -77,17 +79,12 @@ public class PostfixFormExecutor
 
     private String commonGetPostfixForm(StringBuilder expression)
     {
-        checkExpressionByRules();
-
         //checking for emptiness "expression"
         if (expression.toString().isEmpty() || expression == null) {
-            try {
-                throwError("Error: To use function \"getPostfixForm()\" you should fill up the \"expression\" with constructor.");
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            throwError("Error: To use function \"getPostfixForm()\" you should fill up the \"expression\" with constructor.");
         }
+
+        checkExpressionByRules();
 
         for (int i = 0; i < expression.length(); i++) {
             makeAlgorithm(expression.charAt(i));
@@ -112,13 +109,21 @@ public class PostfixFormExecutor
             return;
         }
 
+        //open bracket
+        if (character.equals('(')) {
+            stack.push(character);
+            return;
+        }
+
         //operations
         Matcher operationMatcher = operationPattern.matcher(character.toString());
         if (operationMatcher.matches()) {
-            if (!stack.isEmpty() && !stack.peekFirst().equals('(')) {
+            if (!stack.isEmpty()) {
                 checkOperationPriority(character, stack.peekFirst());
             }
-            stack.push(character);
+            else {
+                stack.push(character);
+            }
             return;
         }
 
@@ -129,7 +134,7 @@ public class PostfixFormExecutor
             return;
         }
 
-        //open bracket
+        //close bracket
         if (character.equals(')')) {
             while (!stack.peekFirst().equals('(')) {
                 postfixForm.append(stack.pop());
@@ -139,26 +144,30 @@ public class PostfixFormExecutor
             return;
         }
 
+        // if program went to this place. It means that none of condition above haven't worked. It's wrong, cause' current symbol is not supported.
+        throwError("current symbol is not supported");
     }
 
     private void checkOperationPriority(Character currentChar, Character headChar)
     {
         byte currentCharPriority = setOperationPriority(currentChar);
-        byte headstackCharPriority = setOperationPriority(headChar);
+        byte headStackCharPriority = setOperationPriority(headChar);
 
-        if (currentCharPriority < headstackCharPriority) {
-            while (!stack.isEmpty()) {
-                if (stack.peekFirst().equals('(')) {
-                    break;
-                }
-
-                postfixForm.append(stack.pop());
-            }
+        if (currentCharPriority >= headStackCharPriority) {
+            stack.push(currentChar);
+        }
+        else {
+            postfixForm.append(stack.pop());
+            checkOperationPriority(currentChar, stack.peekFirst());
         }
     }
 
     private byte setOperationPriority(Character character)
     {
+        if (character == null) {
+            return Priority.default_priority;
+        }
+
         byte priority = 0;
 
         switch (character) {

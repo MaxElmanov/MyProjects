@@ -21,7 +21,7 @@ public class TetradTableExecutor
 
             String symbol = String.valueOf(postfixForm.charAt(i));
 
-            Matcher matcherOperations = Pattern.compile("[*/+-]{1,1}").matcher(symbol.toString());
+            Matcher matcherOperations = Pattern.compile("[*/+-]{1,1}").matcher(symbol);
 
             String op_2 = null; //operand 2
             String op_1 = null; //operand 1
@@ -80,8 +80,7 @@ public class TetradTableExecutor
 
         String symbol = String.valueOf(postfixForm.charAt(index));
 
-        Matcher matcherLetters = Pattern.compile(patternLetters)
-                .matcher(symbol); //if symbol == [a-zA-Z] then return all except T letter
+        Matcher matcherLetters = Pattern.compile(patternLetters).matcher(symbol); //if symbol == [a-zA-Z] then return all except T letter
         Pattern patternNumbers = Pattern.compile("[0-9]{1,5}");
 
         while (index != 0 || backSteps != 0) {
