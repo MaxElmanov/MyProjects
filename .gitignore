@@ -1,5 +1,15 @@
 .gitignore
 
+# others
+vcs.xml
+gradle.*
+workspace.xml
+*.lock
+*.bin
+misc.xml
+compiler.xml
+MANIFEST.MF
+
 # Eclipse
 .classpath
 .project

@@ -3,6 +3,7 @@ package ru.spring.security.project.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.spring.security.project.servies.ProcessIml;
 import ru.spring.security.project.servies.ProcessInterface;
 
+import java.awt.*;
 import java.security.Principal;
 
 @Controller

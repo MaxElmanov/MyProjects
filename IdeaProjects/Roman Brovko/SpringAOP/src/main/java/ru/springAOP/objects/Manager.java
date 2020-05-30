@@ -7,7 +7,7 @@ import java.util.Set;
 
 @Component
 public interface Manager {
-    Map<String, Integer> getExtentionCount(String folder);
+    Map<String, Integer> getExtensionCount(String folder);
 
     Set<String> getExtensionList(String folder);
 }

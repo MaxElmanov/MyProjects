@@ -27,3 +27,12 @@ C:\Users\MaxNick\Desktop\Graphics_2\Graphics_2\obj\Debug\Graphics_2.csproj.Gener
 C:\Users\MaxNick\Desktop\Graphics_2\Graphics_2\obj\Debug\Graphics_2.csproj.CoreCompileInputs.cache
 C:\Users\MaxNick\Desktop\Graphics_2\Graphics_2\obj\Debug\Graphics_2.exe
 C:\Users\MaxNick\Desktop\Graphics_2\Graphics_2\obj\Debug\Graphics_2.pdb
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\bin\Debug\Graphics_2.exe.config
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\obj\Debug\Graphics_2.exe
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\obj\Debug\Graphics_2.pdb
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\bin\Debug\Graphics_2.exe
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\bin\Debug\Graphics_2.pdb
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\obj\Debug\Graphics_2.csprojResolveAssemblyReference.cache
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\obj\Debug\Graphics_2.Form1.resources
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\obj\Debug\Graphics_2.Properties.Resources.resources
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Projects from university 2\2 - MyPaint\Graphics_2\Graphics_2\obj\Debug\Graphics_2.csproj.GenerateResource.Cache

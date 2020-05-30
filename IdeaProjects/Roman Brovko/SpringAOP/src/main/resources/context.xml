@@ -13,16 +13,16 @@
 
     <!--<bean id="myBeanProcessor" class="ru.springAOP.MyBeanPostprocessorPackage.MyBeanPostprocessor"/>-->
 
-    <!--<aop:config>-->
-        <!--<aop:aspect id="log" ref="myLogger">-->
-            <!--<aop:pointcut id="allMethods" expression="execution(public * *(..))"/>-->
-            <!--&lt;!&ndash;<aop:pointcut id="getValue" expression="execution(* ru.springAOP.objects.SomeService.*(..))"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;<aop:before pointcut-ref="getValue" method="init"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;<aop:after pointcut-ref="getValue" method="close"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;<aop:after-returning pointcut-ref="getValue" method="printValue" returning="obj"/>&ndash;&gt;-->
-            <!--&lt;!&ndash;<aop:after-throwing pointcut-ref="getValue" method="showAfterThrowing" throwing="upps"/>&ndash;&gt;-->
-            <!--<aop:around pointcut-ref="allMethods" method="watchTime"/>-->
-            <!--<aop:after-returning pointcut-ref="allMethods" method="print" returning="obj"/>-->
-        <!--</aop:aspect>-->
-    <!--</aop:config>-->
+    <aop:config>
+        <aop:aspect id="log" ref="myLogger">
+            <aop:pointcut id="allMethods" expression="execution(public * *(..))"/>
+            <!--<aop:pointcut id="getValue" expression="execution(* ru.springAOP.objects.SomeService.*(..))"/>-->
+            <!--<aop:before pointcut-ref="getValue" method="init"/>-->
+            <!--<aop:after pointcut-ref="getValue" method="close"/>-->
+            <!--<aop:after-returning pointcut-ref="getValue" method="printValue" returning="obj"/>-->
+            <!--<aop:after-throwing pointcut-ref="getValue" method="showAfterThrowing" throwing="upps"/>-->
+            <aop:around pointcut-ref="allMethods" method="watchTime"/>
+            <aop:after-returning pointcut-ref="allMethods" method="print" returning="obj"/>
+        </aop:aspect>
+    </aop:config>
 </beans>

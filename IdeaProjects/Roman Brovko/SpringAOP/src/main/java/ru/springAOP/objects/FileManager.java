@@ -35,7 +35,7 @@ public class FileManager implements Manager{
 
     @Override
     @ShowTime
-    public Map<String, Integer> getExtentionCount(String folder){
+    public Map<String, Integer> getExtensionCount(String folder){
         File dir = new File(folder);
 
         String nameFolder = folder.substring(folder.lastIndexOf("\\") + 1, folder.length());

@@ -51,8 +51,8 @@ namespace Graphics_2
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            Bitmap bmp = new Bitmap(flowLayoutPanel1.Width, flowLayoutPanel1.Height);
-            Graphics g = Graphics.FromImage(bmp);
+            Bitmap img = new Bitmap(flowLayoutPanel1.Width, flowLayoutPanel1.Height);
+            Graphics g = Graphics.FromImage(img);
             Rectangle rect = flowLayoutPanel1.RectangleToScreen(flowLayoutPanel1.ClientRectangle);
             g.CopyFromScreen(rect.Location, Point.Empty, flowLayoutPanel1.Size);
             g.Dispose();
@@ -66,19 +66,19 @@ namespace Graphics_2
                 }
                 if (s.FileName.Contains(".jpg"))
                 {
-                    bmp.Save(s.FileName, ImageFormat.Jpeg);
+                    img.Save(s.FileName, ImageFormat.Jpeg);
                 }
                 else if (s.FileName.Contains(".png"))
                 {
-                    bmp.Save(s.FileName, ImageFormat.Png);
+                    img.Save(s.FileName, ImageFormat.Png);
                 }
                 else if (s.FileName.Contains(".bmp"))
                 {
-                    bmp.Save(s.FileName, ImageFormat.Bmp);
+                    img.Save(s.FileName, ImageFormat.Bmp);
                 }
                 else if (s.FileName.Contains(".gif"))
                 {
-                    bmp.Save(s.FileName, ImageFormat.Gif);
+                    img.Save(s.FileName, ImageFormat.Gif);
                 }
             }
         }
