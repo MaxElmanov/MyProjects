@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<graph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\Repository\4CourseUniversityProjects\xml\diplomMaxtixAdjancecy.xsd">
+	<node number="1">
+		<name>first</name>
+		<edges>
+			<edge targetNodeNumber="2">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="3">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="4">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="14">
+				<weight>3</weight>
+			</edge>
+			<edge targetNodeNumber="15">
+				<weight>3</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="2">
+		<edges>
+			<edge targetNodeNumber="5">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="10">
+				<weight>5</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="3">
+		<edges>
+			<edge targetNodeNumber="5">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="4">
+		<edges>
+			<edge targetNodeNumber="5">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="5">
+		<edges>
+			<edge targetNodeNumber="6">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="7">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="8">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="12">
+				<weight>3</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="6">
+		<edges>
+			<edge targetNodeNumber="9">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="7">
+		<edges>
+			<edge targetNodeNumber="9">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="8">
+		<edges>
+			<edge targetNodeNumber="9">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="9">
+		<edges>
+			<edge targetNodeNumber="10">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="11">
+				<weight>1</weight>
+			</edge>
+			<edge targetNodeNumber="12">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="10">
+		<edges>
+			<edge targetNodeNumber="13">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="11">
+		<edges>
+			<edge targetNodeNumber="13">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="12">
+		<edges>
+			<edge targetNodeNumber="13">
+				<weight>1</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="13">
+		<name>target node</name>
+	</node>
+	<node number="14">
+		<edges>
+			<edge targetNodeNumber="13">
+				<weight>3</weight>
+			</edge>
+		</edges>
+	</node>
+	<node number="15">
+		<edges>
+			<edge targetNodeNumber="13">
+				<weight>3</weight>
+			</edge>
+		</edges>
+	</node>
+</graph>

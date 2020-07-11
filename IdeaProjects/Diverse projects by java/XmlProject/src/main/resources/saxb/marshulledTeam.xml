@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<team NAME="MyTeam">
+    <footballPlayer number="5">
+        <name>Zurinov</name>
+        <country>
+            <name>Russia</name>
+        </country>
+    </footballPlayer>
+    <footballPlayer number="99">
+        <name>Ronaldinio</name>
+        <country>
+            <name>Brazil</name>
+        </country>
+    </footballPlayer>
+</team>

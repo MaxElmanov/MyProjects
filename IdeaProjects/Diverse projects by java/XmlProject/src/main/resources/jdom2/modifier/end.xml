@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people>
+  <person id="1" name="Sergey Zurinov" country="Russia">
+    <status>updated</status>
+  </person>
+  <person id="2" name="John Colmon" country="USA">
+    <status>updated</status>
+  </person>
+</people>

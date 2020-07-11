@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="nodeNumberType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="edge">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="weight">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{1,5}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="rootNodeNumber" type="nodeNumberType" use="optional"/>
+			<xs:attribute name="targetNodeNumber" type="nodeNumberType" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="node">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[a-zA-Z _]+"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="edges" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="edge" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="number" type="nodeNumberType" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="graph">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="node" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
