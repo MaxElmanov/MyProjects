@@ -6,7 +6,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import java.io.IOException;
 
-public class Launcher
+public class LauncherSAX
 {
     public static void main(String[] args)
     {
@@ -15,7 +15,7 @@ public class Launcher
             XMLReader readerFactory = XMLReaderFactory.createXMLReader();
             SimpleXmlHandler simpleXmlHandler = new SimpleXmlHandler();
             readerFactory.setContentHandler(simpleXmlHandler);
-            readerFactory.parse(Launcher.class.getClassLoader().getResource("common/diplomMatrixAdjancecy_33BP.xml").getFile());
+            readerFactory.parse(LauncherSAX.class.getClassLoader().getResource("common/diplomMatrixAdjancecy_33BP.xml").getFile());
         }
         catch (SAXException e)
         {

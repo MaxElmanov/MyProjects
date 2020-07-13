@@ -4,4 +4,6 @@ public enum ColorStyle {
 
 	WHITE, BLACK, GREEN;
 
+	ColorStyle(){}
+
 }

@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	default-lazy-init="true" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       default-lazy-init="true"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<context:annotation-config />
 	<context:component-scan base-package="ru.javabegin.training.spring"/>
+
+	<bean id="model1" class="ru.javabegin.training.spring.impls.robot.ModelT1000"/>
+
+	<bean id="model2" class="ru.javabegin.training.spring.impls.robot.ModelT1000"
+		p:year="#{2^8}">
+		<property name="soundEnabled" value="#{null == 0 ? true : false}"/>
+		<property name="color">
+			<util:constant static-field="ru.javabegin.training.spring.enums.ColorStyle.GREEN"/>
+		</property>
+		<property name="guns">
+			<util:map>
+                <entry key="blaster" value="#{blaster}"></entry>
+                <entry key="pistol"><bean class="ru.javabegin.training.spring.abstracts.objects.Pistol"/></entry>
+                <entry key="rifle"><bean class="ru.javabegin.training.spring.abstracts.objects.Rifle"/></entry>
+			</util:map>
+		</property>
+	</bean>
+    <bean name="blaster" class="ru.javabegin.training.spring.abstracts.objects.Blaster"/>
+
+	<!--<util:constant id="ColorStyleGreen" static-field="ru.javabegin.training.spring.enums.ColorStyle.GREEN"/>-->
+
+	<bean id="stage" class="ru.javabegin.training.spring.impls.stage.Stage" factory-method="getInstance"
+		  p:width="#{model2.guns.size()}"
+		  p:height="#{10}">
+	</bean>
+
+	<bean id="shape1" class="ru.javabegin.training.spring.impls.stage.MyShape">
+		<property name="shape">
+			<util:constant static-field="ru.javabegin.training.spring.impls.stage.ShapeEnum.Rectangle"/>
+		</property>
+		<qualifier value="shapeRectangle"/>
+	</bean>
+
+	<bean id="shape2" class="ru.javabegin.training.spring.impls.stage.MyShape">
+		<property name="shape">
+			<util:constant static-field="ru.javabegin.training.spring.impls.stage.ShapeEnum.Circle"/>
+		</property>
+	</bean>
 
 </beans>

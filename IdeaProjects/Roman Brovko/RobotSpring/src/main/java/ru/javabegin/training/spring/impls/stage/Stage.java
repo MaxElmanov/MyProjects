@@ -1,4 +1,7 @@
-package ru.javabegin.training.spring.impls;
+package ru.javabegin.training.spring.impls.stage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.Objects;
 
@@ -6,7 +9,10 @@ public class Stage
 {
     private int width;
     private int height;
-    private String form;
+
+    @Autowired(required = false)
+    @Qualifier("shapeRectangle")
+    private MyShape shape;
 
     private Stage(){}
 
@@ -34,14 +40,14 @@ public class Stage
         this.height = height;
     }
 
-    public String getForm()
+    public MyShape getShape()
     {
-        return form;
+        return shape;
     }
 
-    public void setForm(String form)
+    public void setShape(MyShape shape)
     {
-        this.form = form;
+        this.shape = shape;
     }
 
     public static Stage getInstance(){

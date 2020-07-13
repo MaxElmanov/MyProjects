@@ -24,7 +24,9 @@ public class SemanticAnalysis
         //String path = new File(SemanticAnalysis.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParent();
 
 //        writeIntoFile(path + File.separator + args[0], table);
-        writeIntoFile("src\\main\\resources\\result.txt", table);
+        //String srcPath = SemanticAnalysis.class.getClassLoader().getResource("").getPath();
+
+        //writeIntoFile( srcPath + "result.txt", table);
     }
 
     private static void writeIntoFile(String path, String data)

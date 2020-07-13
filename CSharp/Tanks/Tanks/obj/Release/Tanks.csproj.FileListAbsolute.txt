@@ -14,3 +14,13 @@ D:\VSProjects\Tanks\Tanks\obj\Release\Tanks.csprojResolveAssemblyReference.cache
 D:\VSProjects\Tanks\Tanks\obj\Release\Tanks.TrustInfo.xml
 D:\VSProjects\Tanks\Tanks\obj\Release\Tanks.exe.manifest
 D:\VSProjects\Tanks\Tanks\obj\Release\Tanks.application
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\bin\Release\Tanks.exe.config
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.exe
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.pdb
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.csprojResolveAssemblyReference.cache
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.ControllerMainForm.resources
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.MenuForm.resources
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.Properties.Resources.resources
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.View.resources
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.csproj.GenerateResource.Cache
+D:\Repository\My projects (programing)\MyProjects.git\CSharp\Tanks\Tanks\obj\Release\Tanks.TrustInfo.xml

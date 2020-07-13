@@ -3,6 +3,7 @@ package ru.javabegin.training.spring.main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import ru.javabegin.training.spring.impls.stage.Stage;
 import ru.javabegin.training.spring.impls.robot.ModelT1000;
 
 public class Start {
@@ -11,9 +12,13 @@ public class Start {
 		ApplicationContext context = new ClassPathXmlApplicationContext("all_context.xml");
 		ModelT1000 model1 = (ModelT1000) context.getBean("model1");
 		ModelT1000 model2 = (ModelT1000) context.getBean("model2");
+		Stage stage1 = (Stage) context.getBean("stage");
 		// ModelT1000 model3 = (ModelT1000) context.getBean("model1");
 		model1.action();
 		model2.action();
+		System.out.println(stage1.getWidth());
+		System.out.println(stage1.getHeight());
+		System.out.println(stage1.getShape().getShape());
 		// System.out.println(model3);
 	}
 }
